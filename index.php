@@ -1,48 +1,48 @@
 <?php
 session_start();
 define('MAX_LOGIN', 40);
-define('MAX_PHRASES', 400);
+define('MAX_SENTENCES', 400);
 
-$tableauConnexion = [
-	'inscription' => 'Inscription',
+$connexionArray = [
+	'registration' => 'Inscription',
 	'connexion' => 'Connexion',
-	'question_secrete_1' => 'Connexion',
-	'question_secrete_2' => 'Connexion'
+	'secretQuestion1' => 'Connexion',
+	'secretQuestion2' => 'Connexion'
 ];
 
-$tableauMembre = [
-	'espace' => 'Accueil',
-	'parametres' => 'Paramètres',
+$memberArray = [
+	'home' => 'Accueil',
+	'parameters' => 'Paramètres',
 	'modification' => 'Modification',
-	'desinscription' => 'Désinscription',
-	'page_acteur' => 'Acteur',  // TODO Améliorer en ajoutant le nom de l'acteur
-	'deconnexion' => 'Déconnexion'
+	'closeAccount' => 'Désinscription',
+	'actorPage' => 'Acteur',
+	'disconnection' => 'Déconnexion'
 ];
 
-$tableauPages = [$tableauConnexion,$tableauMembre];
+$pagesArray = [$connexionArray,$memberArray];
 
 // Nouvel onglet ?
 if(!empty($_SESSION['page']) && !empty($_GET['page']))
 {
 	// Vérification de l'espace de session et redirection si nécessaire
-	$sessionConnexion = array_key_exists($_GET['page'], $tableauConnexion);
-	$sessionMembre = array_key_exists($_GET['page'], $tableauMembre);
-	if ($sessionConnexion && !empty($_SESSION['id_user']))
+	$connexionSession = array_key_exists($_GET['page'], $connexionArray);
+	$memberSession = array_key_exists($_GET['page'], $memberArray);
+	if ($connexionSession && !empty($_SESSION['id_user']))
 	{
-		$_SESSION['page'] = 'espace';
-		$_SESSION['titre'] = 'Acceuil';
-		header('Location: index.php?page=espace.php');
+		$_SESSION['page'] = 'home';
+		$_SESSION['title'] = 'Acceuil';
+		header('Location: index.php?page=home.php');
 	}
-	elseif ($sessionMembre && empty($_SESSION['id_user']))
+	elseif ($memberSession && empty($_SESSION['id_user']))
 	{
 		$_SESSION['page'] = 'connexion';
-		$_SESSION['titre'] = 'Connexion';
+		$_SESSION['title'] = 'Connexion';
 		header('Location: index.php?page=connexion.php');
 	}
 	// Traitement de la demande GET (recherche de la page)
 	for ($n = 0 ; $n < 2 ; $n++)  // Sélection du tableau
 	{
-		foreach ($tableauPages[$n] as $page => $titre) // Parcourir pages
+		foreach ($pagesArray[$n] as $page => $titre) // Parcourir pages
 		{
 			if ($_GET['page'] === $page)  // Vérification de la page
 			{ 
@@ -55,9 +55,9 @@ if(!empty($_SESSION['page']) && !empty($_GET['page']))
 				{
 					header('Location: index.php?page=' . $_SESSION['page']);
 				}
-				if ($page === 'page_acteur' && !empty($_GET['acteur']))
+				if ($page === 'page_acteur' && !empty($_GET['actor']))
 				{
-					switch ($_GET['acteur']) {
+					switch ($_GET['actor']) {
 					    case '1':
 							$titre = 'Formation&Co';
 					        break;
@@ -72,7 +72,7 @@ if(!empty($_SESSION['page']) && !empty($_GET['page']))
 					        break;				        
 					}
 				}
-				$_SESSION['titre'] = $titre;
+				$_SESSION['title'] = $titre;
 			}
 		}
 	}
@@ -80,35 +80,35 @@ if(!empty($_SESSION['page']) && !empty($_GET['page']))
 // Nouvel onglet : début ou session en cours
 elseif (!empty($_SESSION['id_user']))
 {
-	$_SESSION['page'] = 'espace';
-	$_SESSION['titre'] = 'Acceuil';
-	header('Location: index.php?page=espace.php');
+	$_SESSION['page'] = 'home';
+	$_SESSION['title'] = 'Acceuil';
+	header('Location: index.php?page=home.php');
 }
 else
 {
 	$_SESSION['page'] = 'connexion';
-	$_SESSION['titre'] = 'Connexion';
+	$_SESSION['title'] = 'Connexion';
 	header('Location: index.php?page=connexion');
 }
-include('connexion_base_de_donnees.php');
+include('models/model.php');
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" media="(min-device-width: 1280px)" href="style.css" />
-		<link rel="stylesheet" media="(min-device-width: 450px) and (max-device-width: 1280px)" href="style_tablette.css" />
-		<link rel="stylesheet" media="(max-device-width: 450px)" href="style_smartphone.css" />
+		<link rel="stylesheet" media="(min-device-width: 1280px)" href="css/style.css" />
+		<link rel="stylesheet" media="(min-device-width: 450px) and (max-device-width: 1280px)" href="css/style_tablette.css" />
+		<link rel="stylesheet" media="(max-device-width: 450px)" href="css/style_smartphone.css" />
 		<link rel="shortcut icon" href="images/logo_gbaf.png">
-		<?php echo '<title>' . htmlspecialchars($_SESSION['titre']) . '</title>'; ?>
+		<?= '<title>' . htmlspecialchars($_SESSION['title']) . '</title>' ?>
 	</head>
 
 	<body>
 		<?php 
-		include ('header.php');
-		include ($_SESSION['page'] . '.php');
-		include ('footer.php'); 
+		include('views/header.php');
+		include('controllers/' . $_SESSION['page'] . '.php');
+		include('views/footer.php'); 
 		?>
 	</body>
 </html>

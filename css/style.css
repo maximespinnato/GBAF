@@ -1,0 +1,468 @@
+/* POLICE */
+h1
+{
+	font-size: 3em;
+	color: #1258fd;
+	font-weight: bold;
+	margin-bottom: 0em;
+}
+h2
+{
+	font-size: 2.5em;
+	color: #1258fd;
+	font-weight: bold;
+}
+h3
+{
+	color: black;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+p, li
+{
+	font-size: 1.2em;
+}
+a
+{
+	text-decoration:none;
+	color: #1258fd;
+	font-weight: bold;
+}
+
+
+
+
+
+/* EN TETE */
+header
+{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#barreSuperieure
+{
+	width: 100%;
+	background-color: white;
+	text-align: center;
+	border-bottom:solid grey 0.05em;
+	color: red;
+}
+#en_tete
+{
+	width: 100%;
+	border-bottom: 0.1em solid black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: white;
+}
+#en_tete a
+{
+	font-size: 1.2em;
+}
+#en_tete p 
+{
+	color: black;
+	font-size: 1.2em;
+}
+#logo_entete
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#titre_entete
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;	
+	justify-content: center;
+}
+nav 
+{
+	margin: 1em;
+	min-width: 20%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+nav .bouton
+{
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+	max-width: 20em;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	min-height: 1em;
+}
+#Accueil
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#name_firstname
+{
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	max-height: 3em;
+	cursor: pointer;
+}
+#name_firstname:hover #Menu_espace_personnel
+{
+	display:block;
+	position: relative;
+	z-index: 10;
+}
+#Menu_espace_personnel
+{
+	display: none;
+	width: 100%;
+}
+#Menu_espace_personnel a
+{
+	border:solid grey 0.05em;
+	background-color: #1258fd;
+	color:white;
+	display: block;
+	padding: 0.5em;
+	text-align: center;
+}
+#Menu_espace_personnel a:hover
+{
+	background-color:white;
+	color: #1258fd;
+}
+
+/* BASES */
+html
+{
+	height: 100%;
+	width: 100%;
+}
+body
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	margin: 0em;
+	background-color: #91B1FF;
+}
+main
+{
+	width: 100%;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+}
+
+
+
+
+
+
+
+/* FORMULAIRES */
+.formulaire
+{
+	width:40%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: white;
+	margin:1em;
+	padding: 1em;
+	border-radius: 3em;
+}
+.formulaire h2
+{
+	text-align: center;
+}
+fieldset
+{
+	border: none;
+}
+textarea
+{
+	min-width: 100%;
+}
+input[type="submit"]{
+ cursor:pointer;
+}
+.questionSecrete
+{
+	max-width: 17em;
+	word-wrap: break-word;
+}
+/* Validité ou invalidité des textes */
+.messageVerif
+{
+	text-align: center;
+	width: 80%;
+}
+.invalide
+{
+	color:red;
+}
+.modifie
+{
+	color:green;
+}
+
+
+
+
+
+/* BOUTONS */
+.bouton
+{
+	background-color: #1258fd;
+	border: solid #1258fd 0.2em;
+	border-radius: 1em;
+	padding : 0.5em 0.8em 0.5em 0.8em;
+	color: white;
+	text-align: center;
+}
+.bouton:hover
+{
+	background-color: white;
+	color: #1258fd;
+}
+.boutonCarre
+{
+	background-color: #1258fd;
+	border: solid #1258fd 0.2em;
+	padding : 0.1em 0.2em 0.1em 0.2em;
+	color: white;
+	text-align: center;
+}
+#groupeBoutons
+{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 2em;
+}
+#desinscrire:hover
+{
+	background-color: red;
+	color: white;
+	border-color: red;
+}
+
+
+
+
+/* PAGE ESPACE */
+#banner
+{
+	width: 100%;
+	display: flex;
+	flex-direction: column; 
+	justify-content: space-around;
+	align-items: center;
+	padding:0;
+	background-color: white;
+}
+#banner p
+{
+	font-size: 1.5em;
+}
+#img_banniere
+{
+	width: 100%;
+	min-height: 20em;
+	background-image: url("../images/gbaf_banniere.jpg");
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-position: center;
+	background-attachment: fixed;
+	margin:0;
+}
+#presentation_acteurs
+{
+	padding:1em;
+}
+#acteurs
+{
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 5em;
+	background-color: white;
+}
+#acteurs article
+{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border : solid black 0.1em;
+	border-radius: 0.2em;
+	margin: 1em;
+	padding: 0.5em;
+}
+#acteurs img
+{
+	max-width:10em;
+}
+#acteurs article div:nth-child(1)
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+#acteurs article div:nth-child(2)
+{
+	height: 100%;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+#acteurs article div:nth-child(2) h3, #acteurs article div:nth-child(2) p 
+{
+	margin: 0.2em 0em 0.2em 0em;
+}
+#acteurs article div:nth-child(3)
+{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+#acteurs div:nth-child(3) a
+{
+	text-align: center;
+	color: white;
+	background-color: #1258fd;
+	border-radius: 0.5em;
+	padding: 0.5em;
+}
+#acteurs div:nth-child(3) a:hover
+{
+	background-color: red;
+}
+
+
+
+
+
+/* PAGE ACTEUR */
+.acteur
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#imgActeur
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#commentaires
+{
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #91B1FF;
+	padding: 1em;
+	border-radius: 1em;
+	margin: 2em;
+}
+#comsLikes
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+	width: 100%;
+	height: 2em;
+	border-radius: 1em;
+	font-size: 1.5em;
+}
+#namebreComs
+{
+	width: 30%;
+	text-align: center;
+}
+#likesDislikes
+{
+	text-align: center;
+}
+#likesDislikes img
+{
+	max-height:0.9em;
+}
+#commentaires form
+{
+	width: 100%;
+	align-items: center;
+}
+
+#tableCommentaires
+{
+	width: 100%;
+	border:solid black 0.05em;
+}
+.commentBlanc
+{
+	background-color: white;
+	padding:0.5em;
+}
+.commentGris
+{
+	background-color: #D9D9D9;
+	padding: 0.5em;
+}
+.commentBlanc p, .commentGris p
+{
+	margin:0;
+}
+
+#passActuel
+{
+	border-bottom: solid black 0.1em;
+}
+
+
+
+
+/* PIED DE PAGE */
+footer
+{
+	width: 100%;
+	min-height: 5em;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+footer p
+{
+	font-weight: normal;
+	font-size: 1em;
+}
+footer a 
+{
+	color: black;
+	margin: 0em 2em 0em 2em;
+}
