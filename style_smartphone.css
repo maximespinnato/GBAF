@@ -1,7 +1,7 @@
 /* POLICE */
 h1
 {
-	font-size: 4em;
+	font-size: 5.3em;
 	color: #1258fd;
 	font-weight: bold;
 	margin: 0.5em 0.5em 0em 0.5em;
@@ -9,25 +9,26 @@ h1
 }
 h2
 {
-	font-size: 3.3em;
+	font-size: 4.4em;
 	color: #1258fd;
 	font-weight: bold;
 }
 h3
 {
 	color: black;
-	font-size: 2em;
+	font-size: 2.7em;
 	font-weight: bold;
 }
 p, li
 {
-	font-size: 1.6em;
+	font-size: 2.5em;
 }
 a
 {
 	text-decoration:none;
 	color: #1258fd;
 	font-weight: bold;
+	font-size: 1.3em;
 }
 
 
@@ -47,27 +48,32 @@ header
 	background-color: white;
 	text-align: center;
 	color: red;
-	border-bottom:solid grey 0.05em;
+	border-bottom:solid grey 0.2em;
 }
 #en_tete
 {
 	width: 100%;
-	border-bottom: 0.1em solid black;
+	border-bottom: 0.2em solid black;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
-	max-height: 5em;
+	max-height: 10em;
 	background-color: white;
+}
+#en_tete img
+{
+	width: 5em;
+	height: 100%;
 }
 #en_tete a
 {
-	font-size: 1.2em;
+	font-size: 1.6em;
 }
 #en_tete p 
 {
 	color: black;
-	font-size: 1.2em;
+	font-size: 1.6em;
 	text-align: center;
 }
 #logo_entete
@@ -81,24 +87,21 @@ header
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;	
-	min-width:50%;
+	justify-content: center;
 }
 nav 
 {
-	margin: 1em;
-	min-width: 30%;
+	min-width: 40%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-around;
-	padding:1em;
+	justify-content: center;
 }
 nav .bouton
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	max-width: 10em;
+	max-width: 7em;
 	overflow-x: hidden;
 }
 #Accueil
@@ -107,14 +110,15 @@ nav .bouton
 	flex-direction: row;
 	align-items: center;
 }
-#name_firstname
+#Nom_prenom
 {
 	display: flex;
 	flex-direction: column;
 	padding: 0;
+	align-items: center;
 	cursor: pointer;
 }
-#name_firstname:active #Menu_espace_personnel
+#Nom_prenom:active #Menu_espace_personnel
 {
 	display:block;
 	position: relative;
@@ -127,6 +131,7 @@ nav .bouton
 }
 #Menu_espace_personnel a
 {
+	border:solid grey 0.05em;
 	background-color: #1258fd;
 	color:white;
 	display: block;
@@ -144,7 +149,7 @@ nav .bouton
 html
 {
 	height: 100%;
-	width: 100%;
+	min-width: 100%;
 }
 body
 {
@@ -152,7 +157,7 @@ body
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	width: 100%;
+	min-width: 100%;
 	height: 100%;
 	margin: 0em;
 	background-color: #91B1FF;
@@ -176,14 +181,14 @@ main
 /* FORMULAIRES */
 .formulaire
 {
-	width: 70%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
+	justify-content: space-between;
 	background-color: white;
-	margin:1em;
-	padding: 1em;
+	padding : 2em;
+	margin:2em;
 	border-radius: 3em;
 }
 .formulaire h2
@@ -196,16 +201,13 @@ fieldset
 }
 input[type="text"], input[type="password"]
 {
- font-size: 1.1em;
- border: solid grey 0.1em;
+	font-size: 1.1em;
+	border: solid grey 0.1em;
 }
 textarea
 {
- font-size: 1.3em;	
+ font-size: 1.2em;	
  min-width: 100%;
-}
-input[type="checkbox"]{
- height: 1.3em;
 }
 input[type="submit"]{
  cursor:pointer;
@@ -241,7 +243,7 @@ input[type="submit"]{
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
 	border-radius: 1em;
-	padding : 0.5em 0.8em 0.5em 0.8em;
+	padding : 0.4em 0.6em 0.4em 0.6em;
 	color: white;
 	text-align:center;
 }
@@ -256,11 +258,12 @@ input[type="submit"]{
 	border: solid #1258fd 0.2em;
 	padding : 0.1em 0.2em 0.1em 0.2em;
 	color: white;
+	font-size: 1em;
 	text-align:center;
 }
 #groupeBoutons
 {
-	width: 70%;
+	width: 65%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -291,16 +294,16 @@ input[type="submit"]{
 #banner p
 {
 	margin:1em;
-	font-size: 1.5em;
+	font-size: 2.5em;
 }
 #img_banniere
 {
 	width: 100%;
-	min-height: 20em;
-	background-image: url("../images/gbaf_banniere.jpg");
+	min-height: 30em;
+	background-image: url("images/gbaf_banniere.jpg");
 	background-repeat: no-repeat;
 	background-size:cover;
-	background-position: bottom;
+	background-position: center;
 	background-attachment: fixed;
 	margin:0;
 	padding:0;
@@ -323,41 +326,25 @@ input[type="submit"]{
 {
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
-	border : solid black 0.125em;
+	align-items: flex-end;
+	border : solid black 0.2em;
 	border-radius: 0.3em;
-	margin: 1em;
-	padding: 0.7em;
+	margin: 2em;
+	padding: 1.5em;
 }
 #acteurs img
 {
-	max-width: 10em;
+	max-width: 100%;
 }
 #acteurs article div:nth-child(1)
 {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-#acteurs article div:nth-child(2)
-{
-	height: 100%;
-	width: 70%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+	min-width: 100%;
 }
 #acteurs article div:nth-child(2) h3,#acteurs article div:nth-child(2) p 
 {
-	margin: 0.2em;
-}
-#acteurs article div:nth-child(3)
-{
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+	margin: 0.2em 0em 0.5em 0em;
 }
 #acteurs div:nth-child(3) a
 {
@@ -366,6 +353,7 @@ input[type="submit"]{
 	background-color: #1258fd;
 	border-radius: 0.5em;
 	padding: 0.5em;
+	font-size: 2em;
 }
 #acteurs div:nth-child(3) a:hover
 {
@@ -398,7 +386,7 @@ input[type="submit"]{
 }
 #commentaires
 {
-	width: 70%;
+	width: 90%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -410,30 +398,30 @@ input[type="submit"]{
 #comsLikes
 {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	background-color: white;
 	width: 100%;
-	height: 3em;
 	border-radius: 1em;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
-#namebreComs
+#comsLikes p
 {
-	width: 50%;
+	margin:0.5em;
+}
+#nombreComs
+{
+	width: 60%;
 	text-align: center;
 }
 #likesDislikes
 {
 	text-align: center;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
 }
 #likesDislikes img
 {
-	max-height:1em;
+	height: 1em;
 }
 #commentaires form
 {
@@ -483,7 +471,7 @@ footer
 footer p
 {
 	font-weight: normal;
-	font-size: 1.3em;
+	font-size: 1.7em;
 }
 footer a 
 {

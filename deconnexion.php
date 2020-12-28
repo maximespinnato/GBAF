@@ -5,7 +5,8 @@ session_destroy();
 
 // Suppression des cookies de connexion automatique
 setcookie('connexion_auto', '');
-setcookie('login', '');
-setcookie('passwordHash', '');
+setcookie('pseudo', '');
+setcookie('motdepasse_hache', '');
 
 header('Location: index.php?page=connexion');
+?>

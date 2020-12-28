@@ -1,34 +1,32 @@
 /* POLICE */
 h1
 {
-	font-size: 5.3em;
+	font-size: 3em;
 	color: #1258fd;
 	font-weight: bold;
-	margin: 0.5em 0.5em 0em 0.5em;
-	text-align: center;
+	margin-bottom: 0em;
 }
 h2
 {
-	font-size: 4.4em;
+	font-size: 2.5em;
 	color: #1258fd;
 	font-weight: bold;
 }
 h3
 {
 	color: black;
-	font-size: 2.7em;
+	font-size: 1.5em;
 	font-weight: bold;
 }
 p, li
 {
-	font-size: 2.5em;
+	font-size: 1.2em;
 }
 a
 {
 	text-decoration:none;
 	color: #1258fd;
 	font-weight: bold;
-	font-size: 1.3em;
 }
 
 
@@ -47,34 +45,26 @@ header
 	width: 100%;
 	background-color: white;
 	text-align: center;
+	border-bottom:solid grey 0.05em;
 	color: red;
-	border-bottom:solid grey 0.2em;
 }
 #en_tete
 {
 	width: 100%;
-	border-bottom: 0.2em solid black;
+	border-bottom: 0.1em solid black;
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	max-height: 10em;
+	justify-content: space-between;
 	background-color: white;
-}
-#en_tete img
-{
-	width: 5em;
-	height: 100%;
 }
 #en_tete a
 {
-	font-size: 1.6em;
+	font-size: 1.2em;
 }
 #en_tete p 
 {
 	color: black;
-	font-size: 1.6em;
-	text-align: center;
+	font-size: 1.2em;
 }
 #logo_entete
 {
@@ -86,23 +76,26 @@ header
 {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: center;	
 	justify-content: center;
 }
 nav 
 {
-	min-width: 40%;
+	margin: 1em;
+	min-width: 20%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 }
 nav .bouton
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	max-width: 7em;
+	max-width: 20em;
 	overflow-x: hidden;
+	overflow-y: hidden;
+	min-height: 1em;
 }
 #Accueil
 {
@@ -110,15 +103,15 @@ nav .bouton
 	flex-direction: row;
 	align-items: center;
 }
-#name_firstname
+#Nom_prenom
 {
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-	align-items: center;
+	max-height: 3em;
 	cursor: pointer;
 }
-#name_firstname:active #Menu_espace_personnel
+#Nom_prenom:hover #Menu_espace_personnel
 {
 	display:block;
 	position: relative;
@@ -137,9 +130,8 @@ nav .bouton
 	display: block;
 	padding: 0.5em;
 	text-align: center;
-
 }
-#Menu_espace_personnel a:active
+#Menu_espace_personnel a:hover
 {
 	background-color:white;
 	color: #1258fd;
@@ -149,7 +141,7 @@ nav .bouton
 html
 {
 	height: 100%;
-	min-width: 100%;
+	width: 100%;
 }
 body
 {
@@ -157,7 +149,7 @@ body
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	min-width: 100%;
+	width: 100%;
 	height: 100%;
 	margin: 0em;
 	background-color: #91B1FF;
@@ -181,14 +173,14 @@ main
 /* FORMULAIRES */
 .formulaire
 {
-	width: 80%;
+	width:40%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	background-color: white;
-	padding : 2em;
-	margin:2em;
+	margin:1em;
+	padding: 1em;
 	border-radius: 3em;
 }
 .formulaire h2
@@ -199,19 +191,12 @@ fieldset
 {
 	border: none;
 }
-input[type="text"], input[type="password"]
-{
-	font-size: 1.1em;
-	border: solid grey 0.1em;
-}
 textarea
 {
- font-size: 1.2em;	
- min-width: 100%;
+	min-width: 100%;
 }
 input[type="submit"]{
  cursor:pointer;
- font-size: 0.8em;
 }
 .questionSecrete
 {
@@ -243,9 +228,9 @@ input[type="submit"]{
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
 	border-radius: 1em;
-	padding : 0.4em 0.6em 0.4em 0.6em;
+	padding : 0.5em 0.8em 0.5em 0.8em;
 	color: white;
-	text-align:center;
+	text-align: center;
 }
 .bouton:hover
 {
@@ -258,12 +243,11 @@ input[type="submit"]{
 	border: solid #1258fd 0.2em;
 	padding : 0.1em 0.2em 0.1em 0.2em;
 	color: white;
-	font-size: 1em;
-	text-align:center;
+	text-align: center;
 }
 #groupeBoutons
 {
-	width: 65%;
+	width: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -285,28 +269,25 @@ input[type="submit"]{
 	width: 100%;
 	display: flex;
 	flex-direction: column; 
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	padding:0;
 	background-color: white;
 }
-
 #banner p
 {
-	margin:1em;
-	font-size: 2.5em;
+	font-size: 1.5em;
 }
 #img_banniere
 {
 	width: 100%;
-	min-height: 30em;
-	background-image: url("../images/gbaf_banniere.jpg");
+	min-height: 20em;
+	background-image: url("images/gbaf_banniere.jpg");
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position: center;
 	background-attachment: fixed;
 	margin:0;
-	padding:0;
 }
 #presentation_acteurs
 {
@@ -326,25 +307,42 @@ input[type="submit"]{
 {
 	width: 100%;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: space-between;
-	align-items: flex-end;
-	border : solid black 0.2em;
-	border-radius: 0.3em;
-	margin: 2em;
-	padding: 1.5em;
+	align-items: center;
+	border : solid black 0.1em;
+	border-radius: 0.2em;
+	margin: 1em;
+	padding: 0.5em;
 }
 #acteurs img
 {
-	max-width: 100%;
+	max-width:10em;
 }
 #acteurs article div:nth-child(1)
 {
-	min-width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
-#acteurs article div:nth-child(2) h3,#acteurs article div:nth-child(2) p 
+#acteurs article div:nth-child(2)
 {
-	margin: 0.2em 0em 0.5em 0em;
+	height: 100%;
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+#acteurs article div:nth-child(2) h3, #acteurs article div:nth-child(2) p 
+{
+	margin: 0.2em 0em 0.2em 0em;
+}
+#acteurs article div:nth-child(3)
+{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 #acteurs div:nth-child(3) a
 {
@@ -353,7 +351,6 @@ input[type="submit"]{
 	background-color: #1258fd;
 	border-radius: 0.5em;
 	padding: 0.5em;
-	font-size: 2em;
 }
 #acteurs div:nth-child(3) a:hover
 {
@@ -364,18 +361,12 @@ input[type="submit"]{
 
 
 
-
-
-
-
 /* PAGE ACTEUR */
-#acteur
+.acteur
 {
-	width: 90%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;	
-	margin-top: 2em;
+	justify-content: space-between;
 }
 
 #imgActeur
@@ -386,7 +377,7 @@ input[type="submit"]{
 }
 #commentaires
 {
-	width: 90%;
+	width: 70%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -398,21 +389,18 @@ input[type="submit"]{
 #comsLikes
 {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	flex-direction: row;
+	justify-content: space-around;
 	align-items: center;
 	background-color: white;
 	width: 100%;
+	height: 2em;
 	border-radius: 1em;
-	font-size: 1.2em;
+	font-size: 1.5em;
 }
-#comsLikes p
+#nombreComs
 {
-	margin:0.5em;
-}
-#namebreComs
-{
-	width: 60%;
+	width: 30%;
 	text-align: center;
 }
 #likesDislikes
@@ -421,7 +409,7 @@ input[type="submit"]{
 }
 #likesDislikes img
 {
-	height: 1em;
+	max-height:0.9em;
 }
 #commentaires form
 {
@@ -471,7 +459,7 @@ footer
 footer p
 {
 	font-weight: normal;
-	font-size: 1.7em;
+	font-size: 1em;
 }
 footer a 
 {
