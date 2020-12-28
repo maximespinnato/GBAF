@@ -147,7 +147,7 @@ else
 	<section id="tableCommentaires">
 	<?php
 	$couleurCom = 'blanc';
-	$requete = $bdd->prepare('SELECT id_user,content,DATE_FORMAT(date_add,"Le %d/%m/%Y à %h:%i:%s") AS date_add_fr FROM comments WHERE id_actor = :id_actor ORDER BY date_add');
+	$requete = $bdd->prepare('SELECT id_user,content,DATE_FORMAT(date_add,"Le %d/%m/%Y à %H:%i:%s") AS date_add_fr FROM comments WHERE id_actor = :id_actor ORDER BY date_add');
 	$requete->execute(['id_actor' => $idActeur]);
 	while ($donnees = $requete->fetch())
 	{
