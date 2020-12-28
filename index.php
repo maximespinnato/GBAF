@@ -86,6 +86,11 @@ elseif (!empty($_SESSION['id_user']))
 	$_SESSION['titre'] = 'Accueil';
 	header('Location: index.php?page=espace.php');
 }
+elseif (!empty($_COOKIE['desinscription']) && $_COOKIE['desinscription'])
+{
+	$_SESSION['page'] = 'connexion';
+	$_SESSION['titre'] = 'Connexion';
+}
 else
 {
 	$_SESSION['page'] = 'connexion';
