@@ -1,23 +1,23 @@
 <?php
-// Vérification du choix de modification
-if (isset($_GET['champs']))
+// Vérification of modification choice
+if (isset($_GET['field']))
 {
-	if ($_GET['champs'] === '1' || $_GET['champs'] === '2')
+	if ($_GET['field'] === '1' || $_GET['field'] === '2')
 	{
-		$modification = (int) $_GET['champs'];
+		$modification = (int) $_GET['field'];
 	}
 	else 
 	{
-		header('Location: index.php?page=parametres');
+		header('Location: index.php?page=parameters');
 	}
 }
 else 
 {
-	header('Location: index.php?page=parametres');
+	header('Location: index.php?page=parameters');
 }
 
 
-echo '<section class="Formulaire">';
+echo '<section class="form">';
 
 if ($modification === 1)
 {
@@ -28,32 +28,32 @@ else
 	echo '<h2>Modifier la réponse secrète</h2>';
 } 
 
-// Formulaire de modification
-echo '<form action="index.php?page=modification&amp;champs=' . $modification .'" method="POST">';  
+// Modification form
+echo '<form action="index.php?page=modification&amp;field=' . $modification .'" method="POST">';  
 ?>
-	<fieldset id="passActuel">
+	<fieldset id="current-password">
 		<p><label>Entrez votre mot de passe actuel : <br/>
-			<input type="password" name="motdepasseActuel"
+			<input type="password" name="current_password"
 			<?php echo 'maxlength="' . MAX_LOGIN_LENGTH . '"';?> />
 		</label></p>
 		<p>OU</p>
-		<p class="QuestionSecrete">
+		<p class="secret-question">
 			<label>Entrez votre réponse secrète actuelle : <br/>
-				<input type="password" name="reponseActuelle"
+				<input type="password" name="current_answer"
 				<?php echo 'maxlength="' . MAX_SENTENCES_LENGTH . '"';?> />
 			</label><br/>
 		<?php 
-		$requete = $bdd->prepare('SELECT question FROM members WHERE id_user = :id_user');
-		$requete->execute(['id_user' => $_SESSION['id_user']]);
-		$donnees = $requete->fetch();
-		echo '(Question secrète : ' . htmlspecialchars($donnees['question']) . ')</p>';		
-		$requete->closeCursor();
+		$request = $bdd->prepare('SELECT question FROM members WHERE id_user = :id_user');
+		$request->execute(['id_user' => $_SESSION['id_user']]);
+		$datas = $request->fetch();
+		echo '(Question secrète : ' . htmlspecialchars($datas['question']) . ')</p>';		
+		$request->closeCursor();
 	echo '</fieldset>';
 	echo '<fieldset>';
 		if ($modification === 1)
 		{
 			echo'<p><label>Nouveau mot de passe : <br/>
-						<input type="password" name="motdepasse" 
+						<input type="password" name="password" 
 						maxlength="' . MAX_LOGIN_LENGTH . '"/>
 					</label></p>';
 			echo'<p><label>Vérification du mot de passe : <br/>
@@ -64,89 +64,89 @@ echo '<form action="index.php?page=modification&amp;champs=' . $modification .'"
 		else
 		{
 			echo'<p><label>Nouvelle réponse secrète : <br/>
-						<input type="password" name="reponse"
+						<input type="password" name="answer"
 						maxlength="' . MAX_SENTENCES_LENGTH . '"/>
 					</label></p>';
 		}
 		?>
-		<p><input type="submit" value="Modifier" name="soumis" class="Bouton"/></p>
+		<p><input type="submit" value="Modifier" name="submitted" class="button"/></p>
 	</fieldset>;
 </form>
 
-<p class="MessageVerif">
+<p class="check-message">
 <?php
-if (isset($_POST['soumis'])
-    && empty($_POST['motdepasseActuel'])
-    && empty($_POST['reponseActuelle']))
+if (isset($_POST['submitted'])
+    && empty($_POST['current_password'])
+    && empty($_POST['current_answer']))
 {
-	echo '<span class="Invalide">Veuillez remplir votre mot de passe ou réponse secrète</span>';	
+	echo '<span class="invalid">Veuillez remplir votre mot de passe ou réponse secrète</span>';	
 }
-// Vérification de l'ancien mot de passe
-if (!empty($_POST['motdepasseActuel']) && strlen($_POST['motdepasseActuel']) <= MAX_LOGIN_LENGTH 
-	|| !empty($_POST['reponseActuelle']) && strlen($_POST['reponseActuelle']) <= MAX_SENTENCES_LENGTH)
+// Vérification of the old password
+if (!empty($_POST['current_password']) && strlen($_POST['current_password']) <= MAX_LOGIN_LENGTH 
+	|| !empty($_POST['current_answer']) && strlen($_POST['current_answer']) <= MAX_SENTENCES_LENGTH)
 {
-	$passwordCorrect = false;
-	$requete = $bdd->prepare('SELECT password,answer FROM members WHERE id_user = :id_user');
-	$requete->execute(['id_user' => $_SESSION['id_user']]);
-	$donnees = $requete->fetch();
-	if (password_verify($_POST['motdepasseActuel'], $donnees['password']) || 
-		password_verify($_POST['reponseActuelle'], $donnees['answer']))
+	$correctPassword = false;
+	$request = $bdd->prepare('SELECT password,answer FROM members WHERE id_user = :id_user');
+	$request->execute(['id_user' => $_SESSION['id_user']]);
+	$datas = $request->fetch();
+	if (password_verify($_POST['current_password'], $datas['password']) || 
+		password_verify($_POST['current_answer'], $datas['answer']))
 	{
-		$passwordCorrect = true;
-		// Modification du mot de passe
+		$correctPassword = true;
+		// Password modification
 		if ($modification === 1)
 		{
-			if (!empty($_POST['motdepasse']) && strlen($_POST['motdepasse']) <= MAX_LOGIN_LENGTH
+			if (!empty($_POST['password']) && strlen($_POST['password']) <= MAX_LOGIN_LENGTH
 			    && isset($_POST['verification']))
 			{
-				if ($_POST['motdepasse'] === $_POST['verification'])
+				if ($_POST['password'] === $_POST['verification'])
 				{
-					$motdepasse_hache = password_hash($_POST['motdepasse'], PASSWORD_DEFAULT);
-					$update = $bdd->prepare('UPDATE members SET password = :motdepasse WHERE id_user = :id_user');
+					$hashPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+					$update = $bdd->prepare('UPDATE members SET password = :password WHERE id_user = :id_user');
 					$update->execute([
-						'motdepasse' => $motdepasse_hache,
+						'password' => $hashPassword,
 						'id_user' => $_SESSION['id_user']
 					]);
 					$update->closeCursor();
-					echo '<span class="Modifie">Votre mot de passe a bien été modifié</span>';
+					echo '<span class="modified">Votre mot de passe a bien été modifié</span>';
 				}
 				else
 				{
-					echo '<span class="Invalide">La vérification du mot de passe ne correspond pas</span>';						
+					echo '<span class="invalid">La vérification du mot de passe ne correspond pas</span>';						
 				}
 			}
 			else
 			{
-				echo '<span class="Invalide">Votre nouveau mot de passe n\'est pas valide</span>';
+				echo '<span class="invalid">Votre nouveau mot de passe n\'est pas valide</span>';
 			}
 		}
-		// Modification de la réponse secrète
+		// Secret answer modification
 		else
 		{
-			if (!empty($_POST['reponse']) && strlen($_POST['reponse']) <= MAX_SENTENCES_LENGTH)
+			if (!empty($_POST['answer']) && strlen($_POST['answer']) <= MAX_SENTENCES_LENGTH)
 			{
-				$reponse_hache = password_hash($_POST['reponse'], PASSWORD_DEFAULT);
-				$update = $bdd->prepare('UPDATE members SET answer = :reponse WHERE id_user = :id_user');
+				$hashAnswer = password_hash($_POST['answer'], PASSWORD_DEFAULT);
+				$update = $bdd->prepare('UPDATE members SET answer = :answer WHERE id_user = :id_user');
 				$update->execute([
-					'reponse' => $reponse_hache,
+					'answer' => $hashAnswer,
 					'id_user' => $_SESSION['id_user']
 				]);
 				$update->closeCursor();
-				echo '<span class="Modifie">Votre réponse secrète a bien été modifiée</span>';
+				echo '<span class="modified">Votre réponse secrète a bien été modifiée</span>';
 			}
 			else
 			{
-				echo '<span class="Invalide">Votre réponse secrète n\'est pas valide</span>';
+				echo '<span class="invalid">Votre réponse secrète n\'est pas valide</span>';
 			}				
 		}
 	}
-	$requete->closeCursor();
-	if ($passwordCorrect === false)
+	$request->closeCursor();
+	if ($correctPassword === false)
 	{
-		echo '<span class="Invalide">Votre mot de passe actuel ou votre réponse secrète actuelle n\'est pas correct(e)</span>';
+		echo '<span class="invalid">Votre mot de passe actuel ou votre réponse secrète actuelle n\'est pas correct(e)</span>';
 	}
 }
 ?>
 </p>
-<p><a href="index.php?page=parametres" >Retour aux paramètres</a></p>
+<p><a href="index.php?page=parameters" >Retour aux paramètres</a></p>
 </section>

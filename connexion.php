@@ -1,82 +1,82 @@
 <?php
-$pseudo = '';
-$motdepasse = '';
-$cookieMotdepasse = '';
-$_SESSION['pseudoQuestion'] = '';
+$login = '';
+$password = '';
+$cookiePassword = '';
+$_SESSION['loginQuestion'] = '';
 
 ?>
-<section class="Formulaire">
+<section class="form">
 <?php 
-if (isset($_COOKIE['inscription']) && $_COOKIE['inscription'])
+if (isset($_COOKIE['registration']) && $_COOKIE['registration'])
 {
-	echo '<p class="MessageVerif"><span class="Modifie">Vous vous êtes bien inscrit</span></p>';
-	setcookie('inscription','');
+	echo '<p class="check-message"><span class="modified">Vous vous êtes bien inscrit</span></p>';
+	setcookie('registration','');
 }
-if (isset($_COOKIE['desinscription']) && $_COOKIE['desinscription'])
+if (isset($_COOKIE['unsubscription']) && $_COOKIE['unsubscription'])
 {
-	echo '<p class="MessageVerif"><span class="Modifie">Vous vous êtes bien désinscrit</span></p>';
-	setcookie('desinscription','');
+	echo '<p class="check-message"><span class="modified">Vous vous êtes bien désinscrit</span></p>';
+	setcookie('unsubscription','');
 }
 ?>
 <h1>Connexion</h1>
 <form action="index.php?page=connexion" method="POST"> 
 	<fieldset>
 		<p><label>Identifiant:<br />
-				<input type="text" name="pseudo" id="pseudo" 
+				<input type="text" name="login" id="login" 
 					<?php echo 'maxlength="' . MAX_LOGIN_LENGTH . '"';?> />
 			</label></p>
 		<p><label>Mot de passe :<br />
-				<input type="password" name="motdepasse" id="motdepasse" 
+				<input type="password" name="password" id="password" 
 					<?php echo 'maxlength="' . MAX_LOGIN_LENGTH . '"';?>
 			/></label></p>
-		<p><input type="checkbox" name="connexion_auto" id="connexion_auto"/><label for="connexion_auto">Connexion automatique</label></p>
-		<p><input type="submit" value="Connexion" class="Bouton"/><!-- submit : Bouton d'envoi --></p>
+		<p><input type="checkbox" name="auto_connexion" id="auto_connexion"/><label for="auto_connexion">Connexion automatique</label></p>
+		<p><input type="submit" value="Connexion" class="button"/><!-- submit : Bouton d'envoi --></p>
 	</fieldset> 
 </form>
 <?php		
-// Vérification des cookies si la connexion automatique est activée
-if (isset($_COOKIE['connexion_auto']) && $_COOKIE['connexion_auto'])
+// Cookies verification if auto connexion is enabled
+if (isset($_COOKIE['auto_connexion']) && $_COOKIE['auto_connexion'])
 {
-	$pseudo = $_COOKIE['pseudo'];
-	$cookieMotdepasse = $_COOKIE['motdepasse_hache'];
+	$login = $_COOKIE['login'];
+	$cookiePassword = $_COOKIE['hash_password'];
 }
 
-// Vérification des identifiants de connexion
-if (!empty($_POST['pseudo']) && strlen($_POST['pseudo']) <= MAX_LOGIN_LENGTH
-    && !empty($_POST['motdepasse']) && strlen($_POST['motdepasse']) <= MAX_LOGIN_LENGTH)
+// Vérification of logins of connexion
+if (!empty($_POST['login']) && strlen($_POST['login']) <= MAX_LOGIN_LENGTH
+    && !empty($_POST['password']) && strlen($_POST['password']) <= MAX_LOGIN_LENGTH)
 {
-	$pseudo = $_POST['pseudo'];
-	$motdepasse = $_POST['motdepasse'];
+	$login = $_POST['login'];
+	$password = $_POST['password'];
 } 
 
 
-// Vérification des identifiants dans la base de données et envoi si correct
-$requete = $bdd->prepare('SELECT id_user, lastname, firstname, login, password, question, answer FROM members');
-$requete->execute();
-while ($donnees = $requete->fetch())
+// Vérification of logins in the database, and sending if correct
+$request = $bdd->prepare('SELECT id_user, lastname, firstname, login, password, question, answer FROM members');
+$request->execute();
+while ($datas = $request->fetch())
 {
-	if ($pseudo === $donnees['login'] && $cookieMotdepasse === $donnees['password'] 
-		|| $pseudo === $donnees['login'] && password_verify($motdepasse, $donnees['password']))
+	if ($login === $datas['login'] && $cookiePassword === $datas['password'] 
+		|| $login === $datas['login'] && password_verify($password, $datas['password']))
 	{
-		if (isset($_POST['connexion_auto']))
+		if (isset($_POST['auto_connexion']))
 		{
-			$_SESSION['connexion_auto'] = true;				
+			$_SESSION['auto_connexion'] = true;				
 		}
-		$_SESSION['id_user'] = $donnees['id_user'];
-		$_SESSION['pseudo'] = $donnees['login'];
-		$_SESSION['motdepasse_hache'] = $donnees['password'];
-		$_SESSION['nom'] = $donnees['lastname'];
-		$_SESSION['prenom'] = $donnees['firstname'];
-		$requete->closeCursor();
-		header('Location: index.php?page=espace');
+		$_SESSION['id_user'] = $datas['id_user'];
+		$_SESSION['login'] = $datas['login'];
+		$_SESSION['hash_password'] = $datas['password'];
+		$_SESSION['name'] = $datas['lastname'];
+		$_SESSION['firstname'] = $datas['firstname'];
+		$request->closeCursor();
+		header('Location: index.php?page=home');
 	}
 }	
-$requete->closeCursor();
-if (!empty($_POST['pseudo']) || !empty($_POST['motdepasse'])) 
+$request->closeCursor();
+if (!empty($_POST['login']) || !empty($_POST['password'])) 
 {
-	echo '<p class="MessageVerif"><span class="Invalide">L\'identification est invalide</span></p>';
+	echo '<p class="check-message"><span class="invalid">L\'identification est invalide</span></p>';
 }
 ?>
-	<p>Mot de passe oublié ? <a href="index.php?page=question_secrete_1">Répondez à la question secrète</a></p>
-	<p>Vous ne possédez pas de compte ? <a href="index.php?page=inscription">Inscrivez-vous</a></p>
+	<p>Mot de passe oublié ? <a href="index.php?page=secret_question_1">Répondez à la question secrète</a></p>
+	<p>Vous ne possédez pas de compte ? <a href="index.php?page=registration">Inscrivez-vous</a></p>
 </section>

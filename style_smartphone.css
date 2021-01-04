@@ -1,4 +1,4 @@
-/* POLICE */
+/* FONT */
 h1
 {
 	font-size: 5.3em;
@@ -35,14 +35,14 @@ a
 
 
 
-/* EN TETE */
+/* HEADER */
 header
 {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
-#barreSuperieure
+#upper-bar
 {
 	width: 100%;
 	background-color: white;
@@ -50,7 +50,7 @@ header
 	color: red;
 	border-bottom:solid grey 0.2em;
 }
-#en_tete
+#top-bar
 {
 	width: 100%;
 	border-bottom: 0.2em solid black;
@@ -61,28 +61,28 @@ header
 	max-height: 10em;
 	background-color: white;
 }
-#en_tete img
+#top-bar img
 {
 	width: 5em;
 	height: 100%;
 }
-#en_tete a
+#top-bar a
 {
 	font-size: 1.6em;
 }
-#en_tete p 
+#top-bar p 
 {
 	color: black;
 	font-size: 1.6em;
 	text-align: center;
 }
-#logo_entete
+#logo-top-bar
 {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
-#titre_entete
+#title-top-bar
 {
 	display: flex;
 	flex-direction: row;
@@ -97,20 +97,20 @@ nav
 	align-items: center;
 	justify-content: center;
 }
-nav .Bouton
+nav .button
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
 	max-width: 7em;
 	overflow-x: hidden;
 }
-#Accueil
+#home
 {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 }
-#Nom_prenom
+#name-and-firstname
 {
 	display: flex;
 	flex-direction: column;
@@ -118,18 +118,18 @@ nav .Bouton
 	align-items: center;
 	cursor: pointer;
 }
-#Nom_prenom:active #Menu_espace_personnel
+#name-and-firstname:active #home-menu
 {
 	display:block;
 	position: relative;
 	z-index: 10;
 }
-#Menu_espace_personnel
+#home-menu
 {
 	display: none;
 	width: 100%;
 }
-#Menu_espace_personnel a
+#home-menu a
 {
 	border:solid grey 0.05em;
 	background-color: #1258fd;
@@ -139,13 +139,13 @@ nav .Bouton
 	text-align: center;
 
 }
-#Menu_espace_personnel a:active
+#home-menu a:active
 {
 	background-color:white;
 	color: #1258fd;
 }
 
-/* BASES */
+/* STRUCTURE */
 html
 {
 	height: 100%;
@@ -178,8 +178,8 @@ main
 
 
 
-/* FORMULAIRES */
-.Formulaire
+/* FORMS */
+.form
 {
 	width: 80%;
 	display: flex;
@@ -191,7 +191,7 @@ main
 	margin:2em;
 	border-radius: 3em;
 }
-.Formulaire h2
+.form h2
 {
 	text-align: center;
 }
@@ -213,22 +213,22 @@ input[type="submit"]{
  cursor:pointer;
  font-size: 0.8em;
 }
-.QuestionSecrete
+.secret-question
 {
 	max-width: 17em;
 	word-wrap: break-word;
 }
-/* Validité ou invalidité des textes */
-.MessageVerif
+/* Texts validity checking */
+.check-message
 {
 	text-align: center;
 	width: 80%;
 }
-.Invalide
+.invalid
 {
 	color:red;
 }
-.Modifie
+.modified
 {
 	color:green;
 }
@@ -237,8 +237,8 @@ input[type="submit"]{
 
 
 
-/* BOUTONS */
-.Bouton
+/* BUTTONS */
+.button
 {
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
@@ -247,12 +247,12 @@ input[type="submit"]{
 	color: white;
 	text-align:center;
 }
-.Bouton:hover
+.button:hover
 {
 	background-color: white;
 	color: #1258fd;
 }
-.BoutonCarre
+.square-button
 {
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
@@ -261,7 +261,7 @@ input[type="submit"]{
 	font-size: 1em;
 	text-align:center;
 }
-#groupeBoutons
+#buttons-group
 {
 	width: 65%;
 	display: flex;
@@ -269,7 +269,7 @@ input[type="submit"]{
 	justify-content: space-between;
 	margin-top: 2em;
 }
-#desinscrire:hover
+#unsubscribe:hover
 {
 	background-color: red;
 	color: white;
@@ -279,7 +279,7 @@ input[type="submit"]{
 
 
 
-/* PAGE ESPACE */
+/* HOME PAGE */
 #banner
 {
 	width: 100%;
@@ -296,11 +296,11 @@ input[type="submit"]{
 	margin:1em;
 	font-size: 2.5em;
 }
-#img_banniere
+#banner-image
 {
 	width: 100%;
 	min-height: 30em;
-	background-image: url("images/gbaf_banniere.jpg");
+	background-image: url("images/gbaf_banner.jpg");
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position: center;
@@ -308,11 +308,11 @@ input[type="submit"]{
 	margin:0;
 	padding:0;
 }
-#presentation_acteurs
+#actors-presentation
 {
 	padding:1em;
 }
-#acteurs
+#actors
 {
 	width: 80%;
 	display: flex;
@@ -322,7 +322,7 @@ input[type="submit"]{
 	margin-bottom: 5em;
 	background-color: white;
 }
-#acteurs article
+#actors article
 {
 	width: 100%;
 	display: flex;
@@ -334,19 +334,19 @@ input[type="submit"]{
 	margin: 2em;
 	padding: 1.5em;
 }
-#acteurs img
+#actors img
 {
 	max-width: 100%;
 }
-#acteurs article div:nth-child(1)
+#actors article div:nth-child(1)
 {
 	min-width: 100%;
 }
-#acteurs article div:nth-child(2) h3,#acteurs article div:nth-child(2) p 
+#actors article div:nth-child(2) h3,#actors article div:nth-child(2) p 
 {
 	margin: 0.2em 0em 0.5em 0em;
 }
-#acteurs div:nth-child(3) a
+#actors div:nth-child(3) a
 {
 	text-align: center;
 	color: white;
@@ -355,7 +355,7 @@ input[type="submit"]{
 	padding: 0.5em;
 	font-size: 2em;
 }
-#acteurs div:nth-child(3) a:hover
+#actors div:nth-child(3) a:hover
 {
 	background-color: red;
 }
@@ -368,8 +368,8 @@ input[type="submit"]{
 
 
 
-/* PAGE ACTEUR */
-#acteur
+/* ACTOR PAGE */
+#actor
 {
 	width: 90%;
 	display: flex;
@@ -378,13 +378,13 @@ input[type="submit"]{
 	margin-top: 2em;
 }
 
-#imgActeur
+#actor-image
 {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
-#commentaires
+#comments
 {
 	width: 90%;
 	display: flex;
@@ -395,7 +395,7 @@ input[type="submit"]{
 	border-radius: 1em;
 	margin: 2em;
 }
-#comsLikes
+#comments-and-likes
 {
 	display: flex;
 	flex-direction: column;
@@ -406,11 +406,11 @@ input[type="submit"]{
 	border-radius: 1em;
 	font-size: 1.2em;
 }
-#comsLikes p
+#comments-and-likes p
 {
 	margin:0.5em;
 }
-#nombreComs
+#comments-number
 {
 	width: 60%;
 	text-align: center;
@@ -423,33 +423,33 @@ input[type="submit"]{
 {
 	height: 1em;
 }
-#commentaires form
+#comments form
 {
 	width: 100%;
 	align-items: center;
 }
 
-#tableCommentaires
+#comments-table
 {
 	width: 100%;
 	border:solid black 0.05em;
 }
-.CommentBlanc
+.white-comment
 {
 	background-color: white;
 	padding:0.5em;
 }
-.CommentGris
+.grey-comment
 {
 	background-color: #D9D9D9;
 	padding: 0.5em;
 }
-.CommentBlanc p, .CommentGris p
+.white-comment p, .grey-comment p
 {
 	margin:0;
 }
 
-#passActuel
+#current-password
 {
 	border-bottom: solid black 0.1em;
 }
@@ -457,7 +457,7 @@ input[type="submit"]{
 
 
 
-/* PIED DE PAGE */
+/* FOOTER */
 footer
 {
 	width: 100%;
