@@ -29,7 +29,8 @@ else
 <section id="acteur">
 	<?php 
 	// Affichage de l'acteur
-	echo '<div id="imgActeur"><img src="images/logo_' . $acteur . '.png" alt="logo_' . $acteur . '"/></div>';
+	$nomImage = preg_replace('# #','_',$acteur);
+	echo '<div id="imgActeur"><img src="images/logo_' . $nomImage . '.png" alt="logo_' . $nomImage . '"/></div>';
 	echo '<div id="descriptionActeur"><h2>' . $acteur . '</h2>' ;
 	echo '<p>' . $description . '</p></div>';
 	?>
@@ -113,7 +114,7 @@ else
 		$color = 'white';
 		$valeurlien = '1';
 	}
-	echo sprintf('<a href="index.php?page=page_acteur&amp;acteur=%s&amp;note=%s"><img src="images/happy %s transparent.png" </img></a>',$idActeur,$valeurlien,$color);
+	echo sprintf('<a href="index.php?page=page_acteur&amp;acteur=%s&amp;note=%s"><img src="images/happy_%s_transparent.png" alt="happy_$s_smiley" /></a>',$idActeur,$valeurlien,$color,$color);
 
 	// Nombre de dislikes
 	$requete = $bdd->prepare('SELECT COUNT(*) AS nb_dislikes FROM likes WHERE id_actor = :id_actor AND note = -1');
@@ -133,7 +134,7 @@ else
 		$color = 'white';
 		$valeurlien = '-1';
 	}
-	echo sprintf('<a href="index.php?page=page_acteur&amp;acteur=%s&amp;note=%s"><img src="images/unhappy %s transparent.png" </img></a>',$idActeur,$valeurlien,$color);
+	echo sprintf('<a href="index.php?page=page_acteur&amp;acteur=%s&amp;note=%s"><img src="images/unhappy_%s_transparent.png" alt="unhappy_$s_smiley" /></a>',$idActeur,$valeurlien,$color,$color);
 	echo '</p></div></div>';
 
 	// Formulaire commentaire

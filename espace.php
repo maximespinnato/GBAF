@@ -30,10 +30,11 @@ if (isset($_SESSION['connexion_auto']) && $_SESSION['connexion_auto'])
 		$requete->execute();
 		while ($donnees = $requete->fetch())
 		{
-			echo '<article><div><a href="index.php?page=page_acteur&amp;acteur=' . $donnees['id_actor'] . '"><img src="images/logo_' . $donnees['actor'] . '.png" alt="logo_' . $donnees['actor'] . '" /></a></div>';
+			$nomImage = preg_replace("# #","_", $donnees['actor']);
+			echo '<article><div><a href="index.php?page=page_acteur&amp;acteur=' . $donnees['id_actor'] . '"><img src="images/logo_' . $nomImage . '.png" alt="logo_' . $donnees['actor'] . '" /></a></div>';
 			echo '<div><a href="index.php?page=page_acteur&amp;acteur=' . $donnees['id_actor'] . '"><h3>' . $donnees['actor'] . '</h3></a>';
 			echo '<p>' . substr($donnees['description'], 0, strpos($donnees['description'], '<br')) . '</p></div>';
-			echo '<div><a href="index.php?page=page_acteur&amp;acteur=' . $donnees['id_actor'] . '">Lire plus</a></article></div>';
+			echo '<div><a href="index.php?page=page_acteur&amp;acteur=' . $donnees['id_actor'] . '">Lire plus</a></div></article>';
 		}
 		$requete->closeCursor();
 		?>

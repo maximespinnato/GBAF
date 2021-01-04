@@ -95,18 +95,18 @@ else
 {
 	$_SESSION['page'] = 'connexion';
 	$_SESSION['titre'] = 'Connexion';
-	header('Location: index.php?page=connexion');
+	//header('Location: index.php?page=connexion');
 }
 include('connexion_base_de_donnees.php');
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" media="(min-device-width: 1280px)" href="style.css" />
-		<link rel="stylesheet" media="(min-device-width: 450px) and (max-device-width: 1280px)" href="style_tablette.css" />
-		<link rel="stylesheet" media="(max-device-width: 450px)" href="style_smartphone.css" />
+		<link rel="stylesheet" media="(min-width: 1280px)" href="style.css" />
+		<link rel="stylesheet" media="(min-width: 450px) and (max-width: 1280px)" href="style_tablette.css" />
+		<link rel="stylesheet" media="(max-width: 450px)" href="style_smartphone.css" />
 		<link rel="shortcut icon" href="images/logo_gbaf.png">
 		<?php echo '<title>' . htmlspecialchars($_SESSION['titre']) . '</title>'; ?>
 	</head>
