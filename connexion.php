@@ -5,16 +5,16 @@ $cookieMotdepasse = '';
 $_SESSION['pseudoQuestion'] = '';
 
 ?>
-<section class="formulaire">
+<section class="Formulaire">
 <?php 
 if (isset($_COOKIE['inscription']) && $_COOKIE['inscription'])
 {
-	echo '<p class="messageVerif"><span class="modifie">Vous vous êtes bien inscrit</span></p>';
+	echo '<p class="MessageVerif"><span class="Modifie">Vous vous êtes bien inscrit</span></p>';
 	setcookie('inscription','');
 }
 if (isset($_COOKIE['desinscription']) && $_COOKIE['desinscription'])
 {
-	echo '<p class="messageVerif"><span class="modifie">Vous vous êtes bien désinscrit</span></p>';
+	echo '<p class="MessageVerif"><span class="Modifie">Vous vous êtes bien désinscrit</span></p>';
 	setcookie('desinscription','');
 }
 ?>
@@ -30,7 +30,7 @@ if (isset($_COOKIE['desinscription']) && $_COOKIE['desinscription'])
 					<?php echo 'maxlength="' . MAX_LOGIN_LENGTH . '"';?>
 			/></label></p>
 		<p><input type="checkbox" name="connexion_auto" id="connexion_auto"/><label for="connexion_auto">Connexion automatique</label></p>
-		<p><input type="submit" value="Connexion" class="bouton"/><!-- submit : bouton d'envoi --></p>
+		<p><input type="submit" value="Connexion" class="Bouton"/><!-- submit : Bouton d'envoi --></p>
 	</fieldset> 
 </form>
 <?php		
@@ -74,7 +74,7 @@ while ($donnees = $requete->fetch())
 $requete->closeCursor();
 if (!empty($_POST['pseudo']) || !empty($_POST['motdepasse'])) 
 {
-	echo '<p class="messageVerif"><span class="invalide">L\'identification est invalide</span></p>';
+	echo '<p class="MessageVerif"><span class="Invalide">L\'identification est invalide</span></p>';
 }
 ?>
 	<p>Mot de passe oublié ? <a href="index.php?page=question_secrete_1">Répondez à la question secrète</a></p>

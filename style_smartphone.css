@@ -97,7 +97,7 @@ nav
 	align-items: center;
 	justify-content: center;
 }
-nav .bouton
+nav .Bouton
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
@@ -179,7 +179,7 @@ main
 
 
 /* FORMULAIRES */
-.formulaire
+.Formulaire
 {
 	width: 80%;
 	display: flex;
@@ -191,7 +191,7 @@ main
 	margin:2em;
 	border-radius: 3em;
 }
-.formulaire h2
+.Formulaire h2
 {
 	text-align: center;
 }
@@ -213,22 +213,22 @@ input[type="submit"]{
  cursor:pointer;
  font-size: 0.8em;
 }
-.questionSecrete
+.QuestionSecrete
 {
 	max-width: 17em;
 	word-wrap: break-word;
 }
 /* Validité ou invalidité des textes */
-.messageVerif
+.MessageVerif
 {
 	text-align: center;
 	width: 80%;
 }
-.invalide
+.Invalide
 {
 	color:red;
 }
-.modifie
+.Modifie
 {
 	color:green;
 }
@@ -238,7 +238,7 @@ input[type="submit"]{
 
 
 /* BOUTONS */
-.bouton
+.Bouton
 {
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
@@ -247,12 +247,12 @@ input[type="submit"]{
 	color: white;
 	text-align:center;
 }
-.bouton:hover
+.Bouton:hover
 {
 	background-color: white;
 	color: #1258fd;
 }
-.boutonCarre
+.BoutonCarre
 {
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
@@ -434,17 +434,17 @@ input[type="submit"]{
 	width: 100%;
 	border:solid black 0.05em;
 }
-.commentBlanc
+.CommentBlanc
 {
 	background-color: white;
 	padding:0.5em;
 }
-.commentGris
+.CommentGris
 {
 	background-color: #D9D9D9;
 	padding: 0.5em;
 }
-.commentBlanc p, .commentGris p
+.CommentBlanc p, .CommentGris p
 {
 	margin:0;
 }

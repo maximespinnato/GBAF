@@ -15,8 +15,8 @@
 		{
 		?>
 			<nav class="Menu">
-				<a href="index.php?page=inscription" class="bouton">S'inscrire</a>
-				<a href="index.php?page=connexion" class="bouton">Se connecter</a>
+				<a href="index.php?page=inscription" class="Bouton">S'inscrire</a>
+				<a href="index.php?page=connexion" class="Bouton">Se connecter</a>
 			</nav>
 		<?php
 		}
@@ -24,10 +24,10 @@
 		{  ?>
 			<nav class="Menu">
 				<div id="Accueil">
-					<a href="index.php?page=espace" class="bouton">Accueil</a>
+					<a href="index.php?page=espace" class="Bouton">Accueil</a>
 				</div>
 				<div id="Nom_prenom">
-					<a class="bouton"><?php echo htmlspecialchars($_SESSION['nom']) . ' ' . htmlspecialchars($_SESSION['prenom']);?></a>
+					<a class="Bouton"><?php echo htmlspecialchars($_SESSION['nom']) . ' ' . htmlspecialchars($_SESSION['prenom']);?></a>
 					<div id="Menu_espace_personnel">
 						<a href="index.php?page=parametres">Paramètres</a>
 						<a href="index.php?page=deconnexion">Déconnexion</a>

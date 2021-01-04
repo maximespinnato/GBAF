@@ -17,7 +17,7 @@ else
 }
 
 
-echo '<section class="formulaire">';
+echo '<section class="Formulaire">';
 
 if ($modification === 1)
 {
@@ -37,7 +37,7 @@ echo '<form action="index.php?page=modification&amp;champs=' . $modification .'"
 			<?php echo 'maxlength="' . MAX_LOGIN_LENGTH . '"';?> />
 		</label></p>
 		<p>OU</p>
-		<p class="questionSecrete">
+		<p class="QuestionSecrete">
 			<label>Entrez votre réponse secrète actuelle : <br/>
 				<input type="password" name="reponseActuelle"
 				<?php echo 'maxlength="' . MAX_SENTENCES_LENGTH . '"';?> />
@@ -69,17 +69,17 @@ echo '<form action="index.php?page=modification&amp;champs=' . $modification .'"
 					</label></p>';
 		}
 		?>
-		<p><input type="submit" value="Modifier" name="soumis" class="bouton"/></p>
+		<p><input type="submit" value="Modifier" name="soumis" class="Bouton"/></p>
 	</fieldset>;
 </form>
 
-<p class="messageVerif">
+<p class="MessageVerif">
 <?php
 if (isset($_POST['soumis'])
     && empty($_POST['motdepasseActuel'])
     && empty($_POST['reponseActuelle']))
 {
-	echo '<span class="invalide">Veuillez remplir votre mot de passe ou réponse secrète</span>';	
+	echo '<span class="Invalide">Veuillez remplir votre mot de passe ou réponse secrète</span>';	
 }
 // Vérification de l'ancien mot de passe
 if (!empty($_POST['motdepasseActuel']) && strlen($_POST['motdepasseActuel']) <= MAX_LOGIN_LENGTH 
@@ -108,16 +108,16 @@ if (!empty($_POST['motdepasseActuel']) && strlen($_POST['motdepasseActuel']) <= 
 						'id_user' => $_SESSION['id_user']
 					]);
 					$update->closeCursor();
-					echo '<span class="modifie">Votre mot de passe a bien été modifié</span>';
+					echo '<span class="Modifie">Votre mot de passe a bien été modifié</span>';
 				}
 				else
 				{
-					echo '<span class="invalide">La vérification du mot de passe ne correspond pas</span>';						
+					echo '<span class="Invalide">La vérification du mot de passe ne correspond pas</span>';						
 				}
 			}
 			else
 			{
-				echo '<span class="invalide">Votre nouveau mot de passe n\'est pas valide</span>';
+				echo '<span class="Invalide">Votre nouveau mot de passe n\'est pas valide</span>';
 			}
 		}
 		// Modification de la réponse secrète
@@ -132,18 +132,18 @@ if (!empty($_POST['motdepasseActuel']) && strlen($_POST['motdepasseActuel']) <= 
 					'id_user' => $_SESSION['id_user']
 				]);
 				$update->closeCursor();
-				echo '<span class="modifie">Votre réponse secrète a bien été modifiée</span>';
+				echo '<span class="Modifie">Votre réponse secrète a bien été modifiée</span>';
 			}
 			else
 			{
-				echo '<span class="invalide">Votre réponse secrète n\'est pas valide</span>';
+				echo '<span class="Invalide">Votre réponse secrète n\'est pas valide</span>';
 			}				
 		}
 	}
 	$requete->closeCursor();
 	if ($passwordCorrect === false)
 	{
-		echo '<span class="invalide">Votre mot de passe actuel ou votre réponse secrète actuelle n\'est pas correct(e)</span>';
+		echo '<span class="Invalide">Votre mot de passe actuel ou votre réponse secrète actuelle n\'est pas correct(e)</span>';
 	}
 }
 ?>

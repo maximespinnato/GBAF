@@ -1,7 +1,7 @@
 <?php
 $_SESSION['pseudoQuestion'] = '';
 ?>
-<section class="formulaire">
+<section class="Formulaire">
 	<h1>Connexion</h1>
 		<form action="index.php?page=question_secrete_1" method="POST"> 
 			<fieldset>
@@ -27,18 +27,18 @@ $_SESSION['pseudoQuestion'] = '';
 								header('Location: index.php?page=question_secrete_2');
 							}
 						}
-						echo '<span class="invalide">Cet identifiant est invalide</span>';
+						echo '<span class="Invalide">Cet identifiant est invalide</span>';
 						$requete->closeCursor();
 					}
 					else
 					{
-						echo '<span class="invalide">Cet identifiant est invalide</span>';
+						echo '<span class="Invalide">Cet identifiant est invalide</span>';
 					}
 				} ?>
 				</p>				
-				<p><input type="submit" value="Question secrète" class="bouton"/>  <!-- submit : bouton d'envoi --></p> 
+				<p><input type="submit" value="Question secrète" class="Bouton"/>  <!-- submit : Bouton d'envoi --></p> 
 			</fieldset>
 		</form>				
-		<p><a href="index.php?page=connexion" class="boutonCarre" >Revenir à la connexion avec mot de passe</a></p>
+		<p><a href="index.php?page=connexion" class="BoutonCarre" >Revenir à la connexion avec mot de passe</a></p>
 		<p>Vous ne possédez pas de compte ? <a href="index.php?page=inscription">Inscrivez-vous</a></p>
 </section>

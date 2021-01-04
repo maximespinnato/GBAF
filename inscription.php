@@ -2,7 +2,7 @@
 $pasEnvoyer = false;
 $_SESSION['pseudoQuestion'] = '';
 ?>
-<section class="formulaire">
+<section class="Formulaire">
 <h1>Inscription</h1>
 <form action="index.php?page=inscription" method="POST" id="inscriptionform"> 
 	<fieldset>
@@ -16,7 +16,7 @@ $_SESSION['pseudoQuestion'] = '';
 		{
 			if (empty($_POST['nom']) || strlen($_POST['nom']) > MAX_LOGIN_LENGTH)
 			{
-				echo '<span class="invalide">Ce nom est invalide</span>';
+				echo '<span class="Invalide">Ce nom est invalide</span>';
 				$pasEnvoyer = true;
 			}
 		} 
@@ -35,7 +35,7 @@ $_SESSION['pseudoQuestion'] = '';
 		{
 			if (empty($_POST['prenom']) || strlen($_POST['prenom']) > MAX_LOGIN_LENGTH)
 			{
-				echo '<span class="invalide">Ce prénom est invalide</span>';
+				echo '<span class="Invalide">Ce prénom est invalide</span>';
 				$pasEnvoyer = true;
 			}
 		} 
@@ -60,7 +60,7 @@ $_SESSION['pseudoQuestion'] = '';
 				{
 					if ($_POST['pseudo'] === $donnees['login'])
 					{
-						echo '<span class="invalide">Cet identifiant est déjà pris</span>';
+						echo '<span class="Invalide">Cet identifiant est déjà pris</span>';
 						$pasEnvoyer = true;
 					}
 				}
@@ -68,7 +68,7 @@ $_SESSION['pseudoQuestion'] = '';
 			}
 			else
 			{
-				echo '<span class="invalide">Cet identifiant est invalide</span>';
+				echo '<span class="Invalide">Cet identifiant est invalide</span>';
 				$pasEnvoyer = true;
 			}
 		} 
@@ -87,7 +87,7 @@ $_SESSION['pseudoQuestion'] = '';
 		{
 			if (empty($_POST['motdepasse']) || strlen($_POST['motdepasse']) > MAX_LOGIN_LENGTH)
 			{
-				echo '<span class="invalide">Ce mot de passe est invalide</span>';
+				echo '<span class="Invalide">Ce mot de passe est invalide</span>';
 				$pasEnvoyer = true;	
 			}
 		}
@@ -108,7 +108,7 @@ $_SESSION['pseudoQuestion'] = '';
 			    || strlen($_POST['verification']) > MAX_LOGIN_LENGTH
 			    || $_POST['verification'] != $_POST['motdepasse'])
 			{
-				echo '<span class="invalide">La vérification ne correspond pas au mot de passe</span>';				
+				echo '<span class="Invalide">La vérification ne correspond pas au mot de passe</span>';				
 				$pasEnvoyer = true;
 			}
 		} 
@@ -127,7 +127,7 @@ $_SESSION['pseudoQuestion'] = '';
 		{
 			if (empty($_POST['question']) || strlen($_POST['question']) > MAX_SENTENCES_LENGTH)
 			{
-				echo '<span class="invalide">Cette question est invalide</span>';
+				echo '<span class="Invalide">Cette question est invalide</span>';
 				$pasEnvoyer = true;
 			}
 		} 
@@ -146,7 +146,7 @@ $_SESSION['pseudoQuestion'] = '';
 		{
 			if (empty($_POST['reponse']) || strlen($_POST['reponse']) > MAX_SENTENCES_LENGTH)
 			{
-				echo '<span class="invalide">Cette réponse est invalide</span>';
+				echo '<span class="Invalide">Cette réponse est invalide</span>';
 				$pasEnvoyer = true;
 			}			
 		}
@@ -155,7 +155,7 @@ $_SESSION['pseudoQuestion'] = '';
 			$pasEnvoyer = true;
 		}
 		?></p>
-		<p><input type="submit" value="S'inscrire" class="bouton"/>  <!-- submit : bouton d'envoi --></p> 
+		<p><input type="submit" value="S'inscrire" class="Bouton"/>  <!-- submit : Bouton d'envoi --></p> 
 	</fieldset>
 </form>
 <p>Vous possédez déjà un compte ? <a href="index.php?page=connexion">Connectez-vous</a></p>

@@ -12,11 +12,11 @@ $questionSecrete = $donnees['question'];
 $reponseSecrete = $donnees['answer'];
 $requete->closeCursor();
 ?>
-<section class="formulaire">
+<section class="Formulaire">
 	<h1>Connexion</h1>
 		<form action="index.php?page=question_secrete_2" method="POST"> 
 			<fieldset>
-				<p class="questionSecrete">
+				<p class="QuestionSecrete">
 					<label><?php echo htmlspecialchars($questionSecrete);?> :<br />
 						<input type="password" name="reponse" id="reponse"
 						<?php echo 'maxlength="' . MAX_SENTENCES_LENGTH . '"';?> />
@@ -45,15 +45,15 @@ $requete->closeCursor();
 					}
 					else
 					{
-						echo '<span class="invalide">Cette reponse est invalide</span>';		
+						echo '<span class="Invalide">Cette reponse est invalide</span>';		
 					}
 				} 
 				?></p>
 				<p><label><input type="checkbox" name="connexion_auto" id="connexion_auto"/>Connexion automatique</label></p>
-				<p><input type="submit" value="Envoyer" class="bouton"/>  <!-- submit : bouton d'envoi --></p> 
+				<p><input type="submit" value="Envoyer" class="Bouton"/>  <!-- submit : Bouton d'envoi --></p> 
 			</fieldset>
 		</form>		
-		<p><a href="index.php?page=question_secrete_1" class="boutonCarre">Changer d'identifiant</a></p>
-		<p><a href="index.php?page=connexion" class="boutonCarre">Revenir à la connexion avec mot de passe</a></p>
+		<p><a href="index.php?page=question_secrete_1" class="BoutonCarre">Changer d'identifiant</a></p>
+		<p><a href="index.php?page=connexion" class="BoutonCarre">Revenir à la connexion avec mot de passe</a></p>
 		<p>Vous ne possédez pas de compte ? <a href="index.php?page=inscription">Inscrivez-vous</a></p>
 </section>

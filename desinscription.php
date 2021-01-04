@@ -1,11 +1,11 @@
-<section class="formulaire">
+<section class="Formulaire">
 <h2>Souhaitez-vous vraiment vous désinscrire ?</h2>
 <form action="index.php?page=desinscription" method="POST">
 	<p><label>Mot de passe : 
 		<input type="password" name="motdepasse" id="motdepasse"
 		<?php echo 'maxlength="' . MAX_LOGIN_LENGTH . '"';?> />
 	</label></p>
-	<p><input type="submit" value="Se désinscrire" class="boutonCarre"/></p>
+	<p><input type="submit" value="Se désinscrire" class="BoutonCarre"/></p>
 </form>
 <?php
 // Vérification du mot de passe
@@ -31,7 +31,7 @@ if (!empty($_POST['motdepasse']) && strlen($_POST['motdepasse']) <= MAX_LOGIN_LE
 		header('Location: index.php?page=deconnexion');
 	}
 	$requete->closeCursor();
-	echo '<p class="messageVerif"><span class="invalide">Le mot de passe est invalide.</span></p>';
+	echo '<p class="MessageVerif"><span class="Invalide">Le mot de passe est invalide.</span></p>';
 }
 ?>
 <p><a href="index.php?page=parametres">Retour aux paramètres</a></p>

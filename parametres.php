@@ -96,7 +96,7 @@ if (!empty($_POST['reponse']) && strlen($_POST['reponse']) <= MAX_SENTENCES_LENG
 	$updateReponse = true;	
 }
 ?>
-<section class="formulaire">
+<section class="Formulaire">
 <h2>Paramètres</h2>
 
 <?php
@@ -118,7 +118,7 @@ echo '<p><label>Identifiant : <br/>
 echo '<p><label>Question secrète : <br/>
 			<input type="text" name="question" placeholder="' . htmlspecialchars($donnees['question']) . '" maxlength="' . MAX_SENTENCES_LENGTH . '"/>
 		 </label></p>';
-echo '<p><input type="submit" value="Modifier" name="soumis" class="bouton"/></p>';
+echo '<p><input type="submit" value="Modifier" name="soumis" class="Bouton"/></p>';
 echo '</fieldset>';
 echo '</form>';
 $requete->closeCursor();
@@ -129,44 +129,44 @@ if (isset($_POST['soumis'])
     && empty($_POST['pseudo'])
     && empty($_POST['question']))
 {
-	echo '<span class="invalide">Vous n\'avez rien modifié</span>';
+	echo '<span class="Invalide">Vous n\'avez rien modifié</span>';
 }
 
 // Validation des modifications
 if ($updateNom === true)
 {
-	echo '<span class="modifie">Votre nom a bien été modifié</span><br/>';	
+	echo '<span class="Modifie">Votre nom a bien été modifié</span><br/>';	
 }
 if ($updatePrenom === true)
 {
-	echo '<span class="modifie">Votre prénom a bien été modifié</span><br/>';	
+	echo '<span class="Modifie">Votre prénom a bien été modifié</span><br/>';	
 }
 if ($updatePseudo === true)
 {
-	echo '<span class="modifie">Votre identifiant a bien été modifié</span><br/>';	
+	echo '<span class="Modifie">Votre identifiant a bien été modifié</span><br/>';	
 } 
 if($pseudoExistant === true)
 {
-	echo '<span class="invalide">Cet identifiant existe déjà</span><br/>';
+	echo '<span class="Invalide">Cet identifiant existe déjà</span><br/>';
 }
 if ($updateMotdepasse === true)
 {
-	echo '<span class="modifie">Votre mot de passe a bien été modifié</span><br/>';	
+	echo '<span class="Modifie">Votre mot de passe a bien été modifié</span><br/>';	
 }
 if ($updateQuestion === true)
 {
-	echo '<span class="modifie">Votre question secrète a bien été modifiée</span><br/>';	
+	echo '<span class="Modifie">Votre question secrète a bien été modifiée</span><br/>';	
 }
 if ($updateReponse === true)
 {
-	echo '<span class="modifie">Votre réponse secrète a bien été modifiée</span><br/>';	
+	echo '<span class="Modifie">Votre réponse secrète a bien été modifiée</span><br/>';	
 }
 ?>
 </p>
 <div id="groupeBoutons">
-	<p><a href="index.php?page=modification&amp;champs=1" class="boutonCarre">Modifier le mot de passe</a></p>
-	<p><a href="index.php?page=modification&amp;champs=2" class="boutonCarre">Modifier la réponse secrète</a></p>
-	<p><a href="index.php?page=desinscription" class="boutonCarre" id="desinscrire">Se désinscrire</a></p>
+	<p><a href="index.php?page=modification&amp;champs=1" class="BoutonCarre">Modifier le mot de passe</a></p>
+	<p><a href="index.php?page=modification&amp;champs=2" class="BoutonCarre">Modifier la réponse secrète</a></p>
+	<p><a href="index.php?page=desinscription" class="BoutonCarre" id="desinscrire">Se désinscrire</a></p>
 </div>
 <p><a href="index.php?page=espace">Retour à l'accueil</a></p>
 </section>

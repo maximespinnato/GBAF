@@ -139,7 +139,7 @@ else
 	// Formulaire commentaire
 	echo '<form action="index.php?page=page_acteur&amp;acteur=' . $idActeur . '" method="POST">'; ?>
 		<p><textarea name="content" rows=2 cols=30></textarea></p>
-		<p><input type="submit" value="Ajouter un commentaire" class="bouton"/></p>
+		<p><input type="submit" value="Ajouter un commentaire" class="Bouton"/></p>
 	</form>
 
 
@@ -157,13 +157,13 @@ else
 		{
 			if ($couleurCom === 'blanc')
 			{
-				$classComment = 'commentBlanc';
+				$classComment = 'CommentBlanc';
 				echo sprintf('<div class="%s"><p>%s<br/>',$classComment,htmlspecialchars($donneesPrenom['firstname']));
 				$couleurCom = 'gris';	
 			}
 			else
 			{
-				$classComment = 'commentGris';
+				$classComment = 'CommentGris';
 				echo sprintf('<div class="%s"><p>%s<br/>',$classComment,htmlspecialchars($donneesPrenom['firstname']));
 				$couleurCom = 'blanc';
 			}
