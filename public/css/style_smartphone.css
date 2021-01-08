@@ -1,32 +1,34 @@
 /* FONT */
 h1
 {
-	font-size: 3em;
+	font-size: 5.3em;
 	color: #1258fd;
 	font-weight: bold;
-	margin-bottom: 0em;
+	margin: 0.5em 0.5em 0em 0.5em;
+	text-align: center;
 }
 h2
 {
-	font-size: 2.5em;
+	font-size: 4.4em;
 	color: #1258fd;
 	font-weight: bold;
 }
 h3
 {
 	color: black;
-	font-size: 1.5em;
+	font-size: 2.7em;
 	font-weight: bold;
 }
 p, li
 {
-	font-size: 1.2em;
+	font-size: 2.5em;
 }
 a
 {
 	text-decoration:none;
 	color: #1258fd;
 	font-weight: bold;
+	font-size: 1.3em;
 }
 
 
@@ -45,26 +47,34 @@ header
 	width: 100%;
 	background-color: white;
 	text-align: center;
-	border-bottom:solid grey 0.05em;
 	color: red;
+	border-bottom:solid grey 0.2em;
 }
 #top-bar
 {
 	width: 100%;
-	border-bottom: 0.1em solid black;
+	border-bottom: 0.2em solid black;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
+	max-height: 10em;
 	background-color: white;
+}
+#top-bar img
+{
+	width: 5em;
+	height: 100%;
 }
 #top-bar a
 {
-	font-size: 1.2em;
+	font-size: 1.6em;
 }
 #top-bar p 
 {
 	color: black;
-	font-size: 1.2em;
+	font-size: 1.6em;
+	text-align: center;
 }
 #logo-top-bar
 {
@@ -76,26 +86,23 @@ header
 {
 	display: flex;
 	flex-direction: row;
-	align-items: center;	
+	align-items: center;
 	justify-content: center;
 }
 nav 
 {
-	margin: 1em;
-	min-width: 20%;
+	min-width: 40%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 }
 nav .button
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	max-width: 20em;
+	max-width: 7em;
 	overflow-x: hidden;
-	overflow-y: hidden;
-	min-height: 1em;
 }
 #home
 {
@@ -108,10 +115,10 @@ nav .button
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-	max-height: 3em;
+	align-items: center;
 	cursor: pointer;
 }
-#name-and-firstname:hover #home-menu
+#name-and-firstname:active #home-menu
 {
 	display:block;
 	position: relative;
@@ -130,8 +137,9 @@ nav .button
 	display: block;
 	padding: 0.5em;
 	text-align: center;
+
 }
-#home-menu a:hover
+#home-menu a:active
 {
 	background-color:white;
 	color: #1258fd;
@@ -141,7 +149,7 @@ nav .button
 html
 {
 	height: 100%;
-	width: 100%;
+	min-width: 100%;
 }
 body
 {
@@ -149,7 +157,7 @@ body
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	width: 100%;
+	min-width: 100%;
 	height: 100%;
 	margin: 0em;
 	background-color: #91B1FF;
@@ -173,14 +181,14 @@ main
 /* FORMS */
 .form
 {
-	width:40%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	background-color: white;
-	margin:1em;
-	padding: 1em;
+	padding : 2em;
+	margin:2em;
 	border-radius: 3em;
 }
 .form h2
@@ -191,12 +199,19 @@ fieldset
 {
 	border: none;
 }
+input[type="text"], input[type="password"]
+{
+	font-size: 1.1em;
+	border: solid grey 0.1em;
+}
 textarea
 {
-	min-width: 100%;
+ font-size: 1.2em;	
+ min-width: 100%;
 }
 input[type="submit"]{
-cursor:pointer;
+ cursor:pointer;
+ font-size: 0.8em;
 }
 .secret-question
 {
@@ -228,9 +243,9 @@ cursor:pointer;
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
 	border-radius: 1em;
-	padding : 0.5em 0.8em 0.5em 0.8em;
+	padding : 0.4em 0.6em 0.4em 0.6em;
 	color: white;
-	text-align: center;
+	text-align:center;
 }
 .button:hover
 {
@@ -243,11 +258,12 @@ cursor:pointer;
 	border: solid #1258fd 0.2em;
 	padding : 0.1em 0.2em 0.1em 0.2em;
 	color: white;
-	text-align: center;
+	font-size: 1em;
+	text-align:center;
 }
 #buttons-group
 {
-	width: 50%;
+	width: 65%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -269,25 +285,28 @@ cursor:pointer;
 	width: 100%;
 	display: flex;
 	flex-direction: column; 
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	padding:0;
 	background-color: white;
 }
+
 #banner p
 {
-	font-size: 1.5em;
+	margin:1em;
+	font-size: 2.5em;
 }
 #banner-image
 {
 	width: 100%;
-	min-height: 20em;
-	background-image: url("images/gbaf_banner.jpg");
+	min-height: 30em;
+	background-image: url("../img/gbaf_banner.jpg");
 	background-repeat: no-repeat;
 	background-size:cover;
 	background-position: center;
 	background-attachment: fixed;
 	margin:0;
+	padding:0;
 }
 #actors-presentation
 {
@@ -307,42 +326,25 @@ cursor:pointer;
 {
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
-	border : solid black 0.1em;
-	border-radius: 0.2em;
-	margin: 1em;
-	padding: 0.5em;
+	align-items: flex-end;
+	border : solid black 0.2em;
+	border-radius: 0.3em;
+	margin: 2em;
+	padding: 1.5em;
 }
 #actors img
 {
-	max-width:10em;
+	max-width: 100%;
 }
 #actors article div:nth-child(1)
 {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+	min-width: 100%;
 }
-#actors article div:nth-child(2)
+#actors article div:nth-child(2) h3,#actors article div:nth-child(2) p 
 {
-	height: 100%;
-	width: 70%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-}
-#actors article div:nth-child(2) h3, #actors article div:nth-child(2) p 
-{
-	margin: 0.2em 0em 0.2em 0em;
-}
-#actors article div:nth-child(3)
-{
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
+	margin: 0.2em 0em 0.5em 0em;
 }
 #actors div:nth-child(3) a
 {
@@ -351,6 +353,7 @@ cursor:pointer;
 	background-color: #1258fd;
 	border-radius: 0.5em;
 	padding: 0.5em;
+	font-size: 2em;
 }
 #actors div:nth-child(3) a:hover
 {
@@ -361,12 +364,18 @@ cursor:pointer;
 
 
 
+
+
+
+
 /* ACTOR PAGE */
-.actor
+#actor
 {
+	width: 90%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-between;	
+	margin-top: 2em;
 }
 
 #actor-image
@@ -377,7 +386,7 @@ cursor:pointer;
 }
 #comments
 {
-	width: 70%;
+	width: 90%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -389,18 +398,21 @@ cursor:pointer;
 #comments-and-likes
 {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	background-color: white;
 	width: 100%;
-	height: 2em;
 	border-radius: 1em;
-	font-size: 1.5em;
+	font-size: 1.2em;
+}
+#comments-and-likes p
+{
+	margin:0.5em;
 }
 #comments-number
 {
-	width: 30%;
+	width: 60%;
 	text-align: center;
 }
 #likesDislikes
@@ -409,7 +421,7 @@ cursor:pointer;
 }
 #likesDislikes img
 {
-	max-height:0.9em;
+	height: 1em;
 }
 #comments form
 {
@@ -459,7 +471,7 @@ footer
 footer p
 {
 	font-weight: normal;
-	font-size: 1em;
+	font-size: 1.7em;
 }
 footer a 
 {

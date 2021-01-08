@@ -3,7 +3,7 @@ $_SESSION['loginQuestion'] = '';
 ?>
 <section class="form">
 	<h1>Connexion</h1>
-		<form action="index.php?page=secret_question_1" method="POST"> 
+		<form action="../public/index.php?page=secret_question_login" method="POST"> 
 			<fieldset>
 				<p><label>Identifiant:<br />
 					<input type="text" name="login" id="login"
@@ -18,13 +18,13 @@ $_SESSION['loginQuestion'] = '';
 						// Login verification and secret question display
 						$request = $bdd->prepare('SELECT login FROM members');
 						$request->execute();
-						while ($datas = $request->fetch())
+						while ($membersLogin = $request->fetch())
 						{
-							if ($_POST['login'] === $datas['login'])
+							if ($_POST['login'] === $membersLogin['login'])
 							{
 								$_SESSION['loginQuestion'] = $_POST['login'];
 								$request->closeCursor();
-								header('Location: index.php?page=secret_question_2');
+								header('Location: ../public/index.php?page=secret_question_answer');
 							}
 						}
 						echo '<span class="invalid">Cet identifiant est invalide</span>';
@@ -39,6 +39,6 @@ $_SESSION['loginQuestion'] = '';
 				<p><input type="submit" value="Question secrète" class="button"/>  <!-- submit : Bouton d'envoi --></p> 
 			</fieldset>
 		</form>				
-		<p><a href="index.php?page=connexion" class="square-button" >Revenir à la connexion avec mot de passe</a></p>
-		<p>Vous ne possédez pas de compte ? <a href="index.php?page=registration">Inscrivez-vous</a></p>
+		<p><a href="../public/index.php?page=connection" class="square-button" >Revenir à la connexion avec mot de passe</a></p>
+		<p>Vous ne possédez pas de compte ? <a href="../public/index.php?page=registration">Inscrivez-vous</a></p>
 </section>

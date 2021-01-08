@@ -1,20 +1,20 @@
 <?php
 if (empty($_SESSION['loginQuestion']))
 {
-	header('Location: index.php?page=secret_question_1');
+	header('Location: ../public/index.php?page=secret_question_login');
 }
 // Form prepare
 $request = $bdd->prepare('SELECT id_user,question,answer FROM members WHERE login = :login');
 $request->execute(['login' => $_SESSION['loginQuestion']]);
-$datas = $request->fetch();
-$idUser = $datas['id_user'];
-$secretQuestion = $datas['question'];
-$secretAnswer = $datas['answer'];
+$userDatas = $request->fetch();
+$idUser = $userDatas['id_user'];
+$secretQuestion = $userDatas['question'];
+$secretAnswer = $userDatas['answer'];
 $request->closeCursor();
 ?>
 <section class="form">
 	<h1>Connexion</h1>
-		<form action="index.php?page=secret_question_2" method="POST"> 
+		<form action="../public/index.php?page=secret_question_answer" method="POST"> 
 			<fieldset>
 				<p class="secret-question">
 					<label><?php echo htmlspecialchars($secretQuestion);?> :<br />
@@ -27,21 +27,21 @@ $request->closeCursor();
 				{
 					if(password_verify($_POST['answer'], $secretAnswer))
 					{
-						if (isset($_POST['auto_connexion']))
+						if (isset($_POST['auto_connection']))
 						{
-							$_SESSION['auto_connexion'] = true;
+							$_SESSION['auto_connection'] = true;
 						} 
 						$_SESSION['id_user'] = $idUser;
 						$request = $bdd->prepare('SELECT lastname,firstname,login,password FROM members WHERE id_user = :id_user');
 						$request->execute(['id_user' => $idUser]);
-						$datas = $request->fetch();
-						$_SESSION['login'] = $datas['login'];
-						$_SESSION['hash_password'] = $datas['password'];
-						$_SESSION['name'] = $datas['lastname'];
-						$_SESSION['firstname'] = $datas['firstname'];
+						$userAllDatas = $request->fetch();
+						$_SESSION['login'] = $userAllDatas['login'];
+						$_SESSION['hash_password'] = $userAllDatas['password'];
+						$_SESSION['name'] = $userAllDatas['lastname'];
+						$_SESSION['firstname'] = $userAllDatas['firstname'];
 						$_SESSION['loginQuestion'] = '';		
 						$request->closeCursor();
-						header('Location: index.php?page=home');					
+						header('Location: ../public/index.php?page=home');					
 					}
 					else
 					{
@@ -49,11 +49,11 @@ $request->closeCursor();
 					}
 				} 
 				?></p>
-				<p><label><input type="checkbox" name="auto_connexion" id="auto_connexion"/>Connexion automatique</label></p>
+				<p><label><input type="checkbox" name="auto_connection" id="auto_connection"/>Connexion automatique</label></p>
 				<p><input type="submit" value="Envoyer" class="button"/>  </p> 
 			</fieldset>
 		</form>		
-		<p><a href="index.php?page=secret_question_1" class="square-button">Changer d'identifiant</a></p>
-		<p><a href="index.php?page=connexion" class="square-button">Revenir à la connexion avec mot de passe</a></p>
-		<p>Vous ne possédez pas de compte ? <a href="index.php?page=registration">Inscrivez-vous</a></p>
+		<p><a href="../public/index.php?page=secret_question_login" class="square-button">Changer d'identifiant</a></p>
+		<p><a href="../public/index.php?page=connection" class="square-button">Revenir à la connexion avec mot de passe</a></p>
+		<p>Vous ne possédez pas de compte ? <a href="../public/index.php?page=registration">Inscrivez-vous</a></p>
 </section>

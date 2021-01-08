@@ -2,24 +2,24 @@
 // Vérification of modification choice
 if (isset($_GET['field']))
 {
-	if ($_GET['field'] === '1' || $_GET['field'] === '2')
+	if ($_GET['field'] === 'password' || $_GET['field'] === 'answer')
 	{
-		$modification = (int) $_GET['field'];
+		$modification = $_GET['field'];
 	}
 	else 
 	{
-		header('Location: index.php?page=parameters');
+		header('Location: ../public/index.php?page=parameters');
 	}
 }
 else 
 {
-	header('Location: index.php?page=parameters');
+	header('Location: ../public/index.php?page=parameters');
 }
 
 
 echo '<section class="form">';
 
-if ($modification === 1)
+if ($modification === 'password')
 {
 	echo '<h2>Modifier le mot de passe</h2>';
 }
@@ -29,7 +29,7 @@ else
 } 
 
 // Modification form
-echo '<form action="index.php?page=modification&amp;field=' . $modification .'" method="POST">';  
+echo '<form action="../public/index.php?page=modification&amp;field=' . $modification .'" method="POST">';  
 ?>
 	<fieldset id="current-password">
 		<p><label>Entrez votre mot de passe actuel : <br/>
@@ -45,12 +45,12 @@ echo '<form action="index.php?page=modification&amp;field=' . $modification .'" 
 		<?php 
 		$request = $bdd->prepare('SELECT question FROM members WHERE id_user = :id_user');
 		$request->execute(['id_user' => $_SESSION['id_user']]);
-		$datas = $request->fetch();
-		echo '(Question secrète : ' . htmlspecialchars($datas['question']) . ')</p>';		
+		$userQuestion = $request->fetch();
+		echo '(Question secrète : ' . htmlspecialchars($userQuestion['question']) . ')</p>';		
 		$request->closeCursor();
 	echo '</fieldset>';
 	echo '<fieldset>';
-		if ($modification === 1)
+		if ($modification === 'password')
 		{
 			echo'<p><label>Nouveau mot de passe : <br/>
 						<input type="password" name="password" 
@@ -88,13 +88,13 @@ if (!empty($_POST['current_password']) && strlen($_POST['current_password']) <= 
 	$correctPassword = false;
 	$request = $bdd->prepare('SELECT password,answer FROM members WHERE id_user = :id_user');
 	$request->execute(['id_user' => $_SESSION['id_user']]);
-	$datas = $request->fetch();
-	if (password_verify($_POST['current_password'], $datas['password']) || 
-		password_verify($_POST['current_answer'], $datas['answer']))
+	$userPasswords = $request->fetch();
+	if (password_verify($_POST['current_password'], $userPasswords['password']) || 
+		password_verify($_POST['current_answer'], $userPasswords['answer']))
 	{
 		$correctPassword = true;
 		// Password modification
-		if ($modification === 1)
+		if ($modification === 'password')
 		{
 			if (!empty($_POST['password']) && strlen($_POST['password']) <= MAX_LOGIN_LENGTH
 			    && isset($_POST['verification']))
@@ -148,5 +148,5 @@ if (!empty($_POST['current_password']) && strlen($_POST['current_password']) <= 
 }
 ?>
 </p>
-<p><a href="index.php?page=parameters" >Retour aux paramètres</a></p>
+<p><a href="../public/index.php?page=parameters" >Retour aux paramètres</a></p>
 </section>

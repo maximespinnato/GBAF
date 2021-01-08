@@ -38,9 +38,9 @@ if (!empty($_POST['login']) && strlen($_POST['login']) <= MAX_LOGIN_LENGTH)
 {
 	$request = $bdd->prepare('SELECT login FROM members');
 	$request->execute();
-	while($datas = $request->fetch())
+	while($membersList = $request->fetch())
 	{
-		if ($_POST['login'] === $datas['login'])
+		if ($_POST['login'] === $membersList['login'])
 		{
 			$existingLogin = true;
 		}	
@@ -103,20 +103,20 @@ if (!empty($_POST['answer']) && strlen($_POST['answer']) <= MAX_SENTENCES_LENGTH
 // Parameters form
 $request = $bdd->prepare('SELECT lastname,firstname,login,password,question,answer FROM members WHERE id_user = :id_user');
 $request->execute(['id_user' => $_SESSION['id_user']]);
-$datas = $request->fetch();
-echo '<form action="index.php?page=parameters" method="POST">';
+$userDatas = $request->fetch();
+echo '<form action="../public/index.php?page=parameters" method="POST">';
 echo '<fieldset>';
 echo '<p><label>Nom : <br/>
-			<input type="text" name="name" placeholder="' . htmlspecialchars($datas['lastname']) . '" maxlength="' . MAX_LOGIN_LENGTH . '"/>
+			<input type="text" name="name" placeholder="' . htmlspecialchars($userDatas['lastname']) . '" maxlength="' . MAX_LOGIN_LENGTH . '"/>
 		 </label></p>';
 echo '<p><label>Prénom : <br/>
-			<input type="text" name="firstname" placeholder="' . htmlspecialchars($datas['firstname']) . '" maxlength="' . MAX_LOGIN_LENGTH . '"/>
+			<input type="text" name="firstname" placeholder="' . htmlspecialchars($userDatas['firstname']) . '" maxlength="' . MAX_LOGIN_LENGTH . '"/>
 		 </label></p>';	
 echo '<p><label>Identifiant : <br/>
-			<input type="text" name="login" placeholder="' . htmlspecialchars($datas['login']) . '" maxlength="' . MAX_LOGIN_LENGTH . '"/>
+			<input type="text" name="login" placeholder="' . htmlspecialchars($userDatas['login']) . '" maxlength="' . MAX_LOGIN_LENGTH . '"/>
 		 </label></p>';		
 echo '<p><label>Question secrète : <br/>
-			<input type="text" name="question" placeholder="' . htmlspecialchars($datas['question']) . '" maxlength="' . MAX_SENTENCES_LENGTH . '"/>
+			<input type="text" name="question" placeholder="' . htmlspecialchars($userDatas['question']) . '" maxlength="' . MAX_SENTENCES_LENGTH . '"/>
 		 </label></p>';
 echo '<p><input type="submit" value="Modifier" name="submitted" class="button"/></p>';
 echo '</fieldset>';
@@ -164,9 +164,9 @@ if ($updateAnswer === true)
 ?>
 </p>
 <div id="buttons-group">
-	<p><a href="index.php?page=modification&amp;field=1" class="square-button">Modifier le mot de passe</a></p>
-	<p><a href="index.php?page=modification&amp;field=2" class="square-button">Modifier la réponse secrète</a></p>
-	<p><a href="index.php?page=unsubscription" class="square-button" id="unsubscribe">Se désinscrire</a></p>
+	<p><a href="../public/index.php?page=modification&amp;field=password" class="square-button">Modifier le mot de passe</a></p>
+	<p><a href="../public/index.php?page=modification&amp;field=answer" class="square-button">Modifier la réponse secrète</a></p>
+	<p><a href="../public/index.php?page=unsubscription" class="square-button" id="unsubscribe">Se désinscrire</a></p>
 </div>
-<p><a href="index.php?page=home">Retour à l'accueil</a></p>
+<p><a href="../public/index.php?page=home">Retour à l'accueil</a></p>
 </section>

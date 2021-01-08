@@ -4,7 +4,7 @@ $_SESSION['loginQuestion'] = '';
 ?>
 <section class="form">
 <h1>Inscription</h1>
-<form action="index.php?page=registration" method="POST" id="inscriptionform"> 
+<form action="../public/index.php?page=registration" method="POST" id="inscriptionform"> 
 	<fieldset>
 		<p><label>Nom :<br />
 			<input type="text" name="name" id="name"
@@ -56,9 +56,9 @@ $_SESSION['loginQuestion'] = '';
 			{
 				$request = $bdd->prepare('SELECT login FROM members');
 				$request->execute();
-				while ($datas = $request->fetch())
+				while ($membersLogin = $request->fetch())
 				{
-					if ($_POST['login'] === $datas['login'])
+					if ($_POST['login'] === $membersLogin['login'])
 					{
 						echo '<span class="invalid">Cet identifiant est déjà pris</span>';
 						$notSend = true;
@@ -158,7 +158,7 @@ $_SESSION['loginQuestion'] = '';
 		<p><input type="submit" value="S'inscrire" class="button"/>  </p> 
 	</fieldset>
 </form>
-<p>Vous possédez déjà un compte ? <a href="index.php?page=connexion">Connectez-vous</a></p>
+<p>Vous possédez déjà un compte ? <a href="../public/index.php?page=connection">Connectez-vous</a></p>
 </section>
 <?php
 // Registration success
@@ -181,24 +181,24 @@ if (!$notSend)
 	// Id research of the new registrated user
 	$request = $bdd->prepare('SELECT id_user FROM members WHERE login = :login');
 	$request->execute(['login' => $_POST['login']]);
-	$datas = $request->fetch();
-	$idUser = $datas['id_user'];
+	$idUserDB = $request->fetch();
+	$idUser = $idUserDB['id_user'];
 	$request->closeCursor();
 
 	// Insertion of the new potential likes (1 note / user / actor)
 	$request = $bdd->prepare('SELECT id_actor FROM actors');
 	$request->execute();
-	while ($datas = $request->fetch())
+	while ($idActorsList = $request->fetch())
 	{
 		$insertion = $bdd->prepare('INSERT INTO likes(id_user,id_actor,note) VALUES(:id_user,:id_actor,0)');
 		$insertion->execute([
 			'id_user' => $idUser,
-			'id_actor' => $datas['id_actor']
+			'id_actor' => $idActorsList['id_actor']
 		]);
 		$insertion->closeCursor();			
 	}
 	$request->closeCursor();
 	setcookie('registration', true, time() + 365*24*3600, null, null, false, true);
-	header('Location: index.php?page=connexion');
+	header('Location: ../public/index.php?page=connection');
 }
 ?>

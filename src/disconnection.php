@@ -3,10 +3,10 @@
 $_SESSION = array();
 session_destroy();
 
-// Delete of auto connexion cookies
-setcookie('auto_connexion', '');
+// Delete of auto connection cookies
+setcookie('auto_connection', '');
 setcookie('login', '');
 setcookie('hash_password', '');
 
-header('Location: index.php?page=connexion');
+header('Location: ../public/index.php?page=connection');
 ?>

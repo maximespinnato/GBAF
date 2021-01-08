@@ -3,11 +3,11 @@ session_start();
 define('MAX_LOGIN_LENGTH', 40);
 define('MAX_SENTENCES_LENGTH', 400);
 
-$connexionArray = [
+$connectionArray = [
 	'registration' => 'Inscription',
-	'connexion' => 'Connexion',
-	'secret_question_1' => 'Connexion',
-	'secret_question_2' => 'Connexion'
+	'connection' => 'Connexion',
+	'secret_question_login' => 'Connexion',
+	'secret_question_answer' => 'Connexion'
 ];
 
 $memberArray = [
@@ -16,18 +16,18 @@ $memberArray = [
 	'modification' => 'Modification',
 	'unsubscription' => 'Désinscription',
 	'actor_page' => 'Acteur',
-	'disconnexion' => 'Déconnexion'
+	'disconnection' => 'Déconnexion'
 ];
 
-$pagesArray = [$connexionArray,$memberArray];
+$pagesArray = [$connectionArray,$memberArray];
 
 // New tab ?
 if(!empty($_SESSION['page']) && !empty($_GET['page']))
 {
 	// Verification of session place and redirection if necessary
-	$connexionSession = array_key_exists($_GET['page'], $connexionArray);
+	$connectionSession = array_key_exists($_GET['page'], $connectionArray);
 	$memberSession = array_key_exists($_GET['page'], $memberArray);
-	if ($connexionSession && !empty($_SESSION['id_user']))
+	if ($connectionSession && !empty($_SESSION['id_user']))
 	{
 		$_SESSION['page'] = 'home';
 		$_SESSION['title'] = 'Accueil';
@@ -35,9 +35,9 @@ if(!empty($_SESSION['page']) && !empty($_GET['page']))
 	}
 	elseif ($memberSession && empty($_SESSION['id_user']))
 	{
-		$_SESSION['page'] = 'connexion';
+		$_SESSION['page'] = 'connection';
 		$_SESSION['title'] = 'Connexion';
-		header('Location: index.php?page=connexion.php');
+		header('Location: index.php?page=connection.php');
 	}
 	// Analysis of GET (page research)
 	foreach ($pagesArray as $idArray)  // Array selection
@@ -46,7 +46,7 @@ if(!empty($_SESSION['page']) && !empty($_GET['page']))
 		{
 			if ($_GET['page'] === $page)  // Page verification
 			{ 
-				if (($idArray === $connexionArray && empty($_SESSION['id_user']))
+				if (($idArray === $connectionArray && empty($_SESSION['id_user']))
 					|| ($idArray === $memberArray && !empty($_SESSION['id_user'])))
 				{  // Connexion verification
 					$_SESSION['page'] = $page;
@@ -88,33 +88,33 @@ elseif (!empty($_SESSION['id_user']))
 }
 elseif (!empty($_COOKIE['unsubscription']) && $_COOKIE['unsubscription'])
 {
-	$_SESSION['page'] = 'connexion';
+	$_SESSION['page'] = 'connection';
 	$_SESSION['title'] = 'Connexion';
 }
 else
 {
-	$_SESSION['page'] = 'connexion';
+	$_SESSION['page'] = 'connection';
 	$_SESSION['title'] = 'Connexion';
 }
-include('database_connexion.php');
+include('../src/database_connection.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" media="(min-width: 1280px)" href="style.css" />
-		<link rel="stylesheet" media="(min-width: 450px) and (max-width: 1280px)" href="style_tablet.css" />
-		<link rel="stylesheet" media="(max-width: 450px)" href="style_smartphone.css" />
-		<link rel="shortcut icon" href="images/logo_gbaf.png">
+		<link rel="stylesheet" media="(min-width: 1280px)" href="css/style.css" />
+		<link rel="stylesheet" media="(min-width: 450px) and (max-width: 1280px)" href="css/style_tablet.css" />
+		<link rel="stylesheet" media="(max-width: 450px)" href="css/style_smartphone.css" />
+		<link rel="shortcut icon" href="img/logo_gbaf.png">
 		<?php echo '<title>' . htmlspecialchars($_SESSION['title']) . '</title>'; ?>
 	</head>
 
 	<body>
 		<?php 
-		include ('header.php');
-		include ($_SESSION['page'] . '.php');
-		include ('footer.php'); 
+		include ('../src/header.php');
+		include ('../src/' . $_SESSION['page'] . '.php');
+		include ('../src/footer.php'); 
 		?>
 	</body>
 </html>

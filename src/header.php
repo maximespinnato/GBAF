@@ -4,10 +4,10 @@
 	</div>
 	<div id="top-bar">
 		<div id="logo-top-bar">
-			<a href="index.php?page=home"><img src="images/logo_gbaf.png" alt="logo_gbaf" height="80"></a>
+			<a href="../public/index.php?page=home"><img src="../public/img/logo_gbaf.png" alt="logo_gbaf" height="80"></a>
 		</div>
 		<div id="title-top-bar">
-			<a href="index.php?page=home"><p>Groupement Banque Assurances Français</p></a>
+			<a href="../public/index.php?page=home"><p>Groupement Banque Assurances Français</p></a>
 		</div>
 
 		<?php
@@ -15,8 +15,8 @@
 		{
 		?>
 			<nav class="Menu">
-				<a href="index.php?page=registration" class="button">S'inscrire</a>
-				<a href="index.php?page=connexion" class="button">Se connecter</a>
+				<a href="../public/index.php?page=registration" class="button">S'inscrire</a>
+				<a href="../public/index.php?page=connection" class="button">Se connecter</a>
 			</nav>
 		<?php
 		}
@@ -24,13 +24,13 @@
 		{  ?>
 			<nav class="Menu">
 				<div id="home">
-					<a href="index.php?page=home" class="button">Accueil</a>
+					<a href="../public/index.php?page=home" class="button">Accueil</a>
 				</div>
 				<div id="name-and-firstname">
 					<a class="button"><?php echo htmlspecialchars($_SESSION['name']) . ' ' . htmlspecialchars($_SESSION['firstname']);?></a>
 					<div id="home-menu">
-						<a href="index.php?page=parameters">Paramètres</a>
-						<a href="index.php?page=disconnexion">Déconnexion</a>
+						<a href="../public/index.php?page=parameters">Paramètres</a>
+						<a href="../public/index.php?page=disconnection">Déconnexion</a>
 					</div>
 				</div>
 			</nav>
