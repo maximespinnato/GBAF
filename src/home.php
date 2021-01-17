@@ -19,7 +19,7 @@ if (isset($_SESSION['auto_connection']) && $_SESSION['auto_connection'])
 	<section id="actors-presentation">
 		<h2>Partenaires</h2>
 		<p>
-			Nous vous présentons ici les acteurs avec qui on travaille. Vous pouvez consulter leur description, et donner votre avis professionnel sur chacun d'entre eux.
+			Nous vous présentons ici les acteurs avec qui nous travaillons. Vous pouvez consulter leur description et donner votre avis professionnel sur chacun d'entre eux.
 		</p>
 	</section>
 	<section id="actors">

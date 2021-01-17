@@ -7,7 +7,7 @@
 			<a href="../public/index.php?page=home"><img src="../public/img/logo_gbaf.png" alt="logo_gbaf" height="80"></a>
 		</div>
 		<div id="title-top-bar">
-			<a href="../public/index.php?page=home"><p>Groupement Banque Assurances Français</p></a>
+			<a href="../public/index.php?page=home"><p>Groupement Banque Assurance Français</p></a>
 		</div>
 
 		<?php
