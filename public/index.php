@@ -104,7 +104,8 @@ include('../src/database_connection.php');
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="stylesheet" media="(min-width: 1281px)" href="css/style.css" />
+		<link rel="stylesheet" media="all" href="css/style.css" />
+		<link rel="stylesheet" media="(min-width: 1281px)" href="css/style_desktop.css" />
 		<link rel="stylesheet" media="(min-width: 651px) and (max-width: 1280px)" href="css/style_tablet.css" />
 		<link rel="stylesheet" media="(max-width: 650px)" href="css/style_smartphone.css" />
 		<link rel="shortcut icon" href="img/logo_gbaf.png">

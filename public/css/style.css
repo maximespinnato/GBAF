@@ -1,26 +1,18 @@
 /* FONT */
 h1
 {
-	font-size: 3em;
 	color: #1258fd;
 	font-weight: bold;
-	margin-bottom: 0em;
 }
 h2
 {
-	font-size: 2.5em;
 	color: #1258fd;
 	font-weight: bold;
 }
 h3
 {
 	color: black;
-	font-size: 1.5em;
 	font-weight: bold;
-}
-p, li
-{
-	font-size: 1.2em;
 }
 a
 {
@@ -54,12 +46,7 @@ header
 	border-bottom: 0.1em solid black;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	background-color: white;
-}
-#top-bar a
-{
-	font-size: 1.2em;
 }
 #top-bar p 
 {
@@ -72,30 +59,17 @@ header
 	flex-direction: row;
 	align-items: center;
 }
-#title-top-bar
-{
-	display: flex;
-	flex-direction: row;
-	align-items: center;	
-	justify-content: center;
-}
 nav 
 {
-	margin: 1em;
-	min-width: 20%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-between;
 }
 nav .button
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	max-width: 20em;
 	overflow-x: hidden;
-	overflow-y: hidden;
-	min-height: 1em;
 }
 #home
 {
@@ -108,14 +82,7 @@ nav .button
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-	max-height: 3em;
 	cursor: pointer;
-}
-#name-and-firstname:hover #home-menu
-{
-	display:block;
-	position: relative;
-	z-index: 10;
 }
 #home-menu
 {
@@ -124,17 +91,11 @@ nav .button
 }
 #home-menu a
 {
-	border:solid grey 0.05em;
 	background-color: #1258fd;
 	color:white;
 	display: block;
 	padding: 0.5em;
 	text-align: center;
-}
-#home-menu a:hover
-{
-	background-color:white;
-	color: #1258fd;
 }
 
 /* STRUCTURE */
@@ -150,7 +111,6 @@ body
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	height: 100%;
 	margin: 0em;
 	background-color: #91B1FF;
 }
@@ -171,14 +131,12 @@ main
 /* FORMS */
 .form
 {
-	width:40%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	background-color: white;
 	margin:1em;
-	padding: 1em;
 	border-radius: 3em;
 }
 .form h2
@@ -189,12 +147,8 @@ fieldset
 {
 	border: none;
 }
-textarea
-{
-	min-width: 100%;
-}
 input[type="submit"]{
-cursor:pointer;
+	cursor:pointer;
 }
 .secret-question
 {
@@ -240,17 +194,14 @@ cursor:pointer;
 {
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
-	padding : 0.1em 0.2em 0.1em 0.2em;
 	color: white;
 	text-align: center;
 }
 #buttons-group
 {
-	width: 50%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-top: 2em;
 }
 #unsubscribe:hover
 {
@@ -268,7 +219,6 @@ cursor:pointer;
 	width: 100%;
 	display: flex;
 	flex-direction: column; 
-	justify-content: space-around;
 	align-items: center;
 	padding:0;
 	background-color: white;
@@ -284,7 +234,6 @@ cursor:pointer;
 	background-image: url("../img/gbaf_banner.jpg");
 	background-repeat: no-repeat;
 	background-size:cover;
-	background-position: center;
 	background-attachment: fixed;
 	margin:0;
 }
@@ -306,41 +255,23 @@ cursor:pointer;
 {
 	width: 100%;
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
-	border : solid black 0.1em;
-	border-radius: 0.2em;
 	margin: 1em;
-	padding: 0.5em;
-}
-#actors img
-{
-	max-width:10em;
 }
 #actors article div:nth-child(1)
 {
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
 }
 #actors article div:nth-child(2)
 {
 	height: 100%;
-	width: 70%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 }
-#actors article div:nth-child(2) h3, #actors article div:nth-child(2) p 
-{
-	margin: 0.2em 0em 0.2em 0em;
-}
 #actors article div:nth-child(3)
 {
-	height: 100%;
 	display: flex;
-	flex-direction: column;
 	justify-content: flex-end;
 }
 #actors div:nth-child(3) a
@@ -399,22 +330,15 @@ cursor:pointer;
 	align-items: center;
 	background-color: white;
 	width: 100%;
-	height: 2em;
 	border-radius: 1em;
-	font-size: 1.5em;
 }
 #comments-number
 {
-	width: 30%;
 	text-align: center;
 }
 #likesDislikes
 {
 	text-align: center;
-}
-#likesDislikes img
-{
-	max-height:0.9em;
 }
 #comments form
 {
@@ -464,7 +388,6 @@ footer
 footer p
 {
 	font-weight: normal;
-	font-size: 1em;
 }
 footer a 
 {

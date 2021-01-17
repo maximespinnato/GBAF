@@ -1,0 +1,169 @@
+/* FONT */
+h1
+{
+	font-size: 3em;
+	margin-bottom: 0em;
+}
+h2
+{
+	font-size: 2.5em;
+}
+h3
+{
+	font-size: 1.5em;
+}
+p, li
+{
+	font-size: 1.2em;
+}
+
+
+
+
+
+/* HEADER */
+#top-bar
+{
+	justify-content: space-between;
+}
+#top-bar a
+{
+	font-size: 1.2em;
+}
+#title-top-bar
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;	
+	justify-content: center;
+}
+nav 
+{
+	margin: 1em;
+	min-width: 20%;
+	justify-content: space-between;
+}
+nav .button
+{
+	max-width: 20em;
+	overflow-y: hidden;
+	min-height: 1em;
+}
+#name-and-firstname
+{
+	max-height: 3em;
+}
+#name-and-firstname:hover #home-menu
+{
+	display:block;
+	position: relative;
+	z-index: 10;
+}
+#home-menu a
+{
+	border:solid grey 0.05em;
+}
+#home-menu a:hover
+{
+	background-color:white;
+	color: #1258fd;
+}
+
+/* STRUCTURE */
+body
+{
+	height: 100%;
+}
+
+
+
+/* FORMS */
+.form
+{
+	width:40%;
+	padding: 1em;
+}
+textarea
+{
+	min-width: 100%;
+}
+
+
+
+/* BUTTONS */
+.square-button
+{
+	padding : 0.1em 0.2em 0.1em 0.2em;
+}
+#buttons-group
+{
+	width: 50%;
+	margin-top: 2em;
+}
+
+
+
+
+/* HOME PAGE */
+#banner
+{
+	justify-content: space-around;
+}
+#banner-image
+{
+	background-position: center;
+}
+#actors article
+{
+	flex-direction: row;
+	align-items: center;
+	border : solid black 0.1em;
+	border-radius: 0.2em;
+	padding: 0.5em;
+}
+#actors img
+{
+	max-width:10em;
+}
+#actors article div:nth-child(1)
+{
+	flex-direction: column;
+	justify-content: flex-start;
+}
+#actors article div:nth-child(2)
+{
+	width: 70%;
+}
+#actors article div:nth-child(2) h3, #actors article div:nth-child(2) p 
+{
+	margin: 0.2em 0em 0.2em 0em;
+}
+#actors article div:nth-child(3)
+{
+	height: 100%;
+	flex-direction: column;
+}
+
+
+/* ACTOR PAGE */
+#comments-and-likes
+{
+	height: 2em;
+	font-size: 1.5em;
+}
+#comments-number
+{
+	width: 30%;
+}
+#likesDislikes img
+{
+	max-height:0.9em;
+}
+
+
+
+/* FOOTER */
+footer p
+{
+	font-size: 1em;
+}
