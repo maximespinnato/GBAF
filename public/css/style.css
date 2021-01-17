@@ -206,6 +206,7 @@ cursor:pointer;
 {
 	text-align: center;
 	width: 80%;
+	margin : 0em;
 }
 .invalid
 {
@@ -373,6 +374,12 @@ cursor:pointer;
 	flex-direction: column;
 	justify-content: center;
 }
+
+#actor-image img
+{
+	width : 100%;
+}
+
 #comments
 {
 	width: 70%;

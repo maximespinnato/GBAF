@@ -1,15 +1,15 @@
 /* FONT */
 h1
 {
-	font-size: 4em;
+	font-size: 3em;
 	color: #1258fd;
 	font-weight: bold;
-	margin: 0.5em 0.5em 0em 0.5em;
+	margin: 0;
 	text-align: center;
 }
 h2
 {
-	font-size: 3.3em;
+	font-size: 2.5em;
 	color: #1258fd;
 	font-weight: bold;
 }
@@ -21,7 +21,7 @@ h3
 }
 p, li
 {
-	font-size: 1.6em;
+	font-size: 1em;
 }
 a
 {
@@ -55,14 +55,10 @@ header
 	border-bottom: 0.1em solid black;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	max-height: 5em;
 	background-color: white;
-}
-#top-bar a
-{
-	font-size: 1.2em;
 }
 #top-bar p 
 {
@@ -76,14 +72,19 @@ header
 	flex-direction: row;
 	align-items: center;
 }
-#title-top-bar
+/*#title-top-bar
 {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;	
 	min-width:50%;
+}*/
+#title-top-bar
+{
+	display : none;
 }
+
 nav 
 {
 	margin: 1em;
@@ -92,13 +93,14 @@ nav
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-	padding:1em;
+	padding:0.2em;
+	border : solid orange 0.2em;
 }
 nav .button
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	max-width: 10em;
+	max-width: 15em;
 	overflow-x: hidden;
 }
 #home
@@ -145,6 +147,7 @@ html
 {
 	height: 100%;
 	width: 100%;
+
 }
 body
 {
@@ -183,7 +186,7 @@ main
 	align-items: center;
 	background-color: white;
 	margin:1em;
-	padding: 1em;
+	padding: 2em;
 	border-radius: 3em;
 }
 .form h2
@@ -192,24 +195,27 @@ main
 }
 fieldset
 {
+	max-width : 70%;
 	border: none;
 }
+
 input[type="text"], input[type="password"]
 {
- font-size: 1.1em;
- border: solid grey 0.1em;
+	font-size: 1.1em;
+	border: solid grey 0.1em;
+	max-width : 70%;
 }
 textarea
 {
- font-size: 1.3em;	
- min-width: 100%;
+	font-size: 1em;	
+	max-width: 100%;
 }
 input[type="checkbox"]{
- height: 1.3em;
+	height: 1.3em;
 }
 input[type="submit"]{
- cursor:pointer;
- font-size: 0.8em;
+	cursor:pointer;
+	font-size: 0.8em;
 }
 .secret-question
 {
@@ -221,6 +227,7 @@ input[type="submit"]{
 {
 	text-align: center;
 	width: 80%;
+	margin : 0;
 }
 .invalid
 {
@@ -254,17 +261,18 @@ input[type="submit"]{
 {
 	background-color: #1258fd;
 	border: solid #1258fd 0.2em;
-	padding : 0.1em 0.2em 0.1em 0.2em;
+	padding : 0.2em 0.2em 0.2em 0.2em;
 	color: white;
 	text-align:center;
+	font-size: 0.8em;
 }
 #buttons-group
 {
-	width: 70%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin-top: 2em;
+	margin-top: 1em;
 }
 #unsubscribe:hover
 {
@@ -324,7 +332,8 @@ input[type="submit"]{
 {
 	width: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-items : center;
 	justify-content: space-between;
 	border : solid black 0.125em;
 	border-radius: 0.3em;
@@ -333,18 +342,20 @@ input[type="submit"]{
 }
 #actors img
 {
-	max-width: 10em;
+	max-height: 5em;
+	max-width : 100%;
 }
 #actors article div:nth-child(1)
 {
+	width : 100%;
 	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
+	flex-direction: row;
+	justify-content: center;
 }
 #actors article div:nth-child(2)
 {
 	height: 100%;
-	width: 70%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -355,9 +366,9 @@ input[type="submit"]{
 }
 #actors article div:nth-child(3)
 {
-	min-height: 100%;
+	min-width: 100%;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	justify-content: flex-end;
 }
 #actors div:nth-child(3) a
@@ -397,6 +408,12 @@ input[type="submit"]{
 	flex-direction: column;
 	justify-content: center;
 }
+
+#actor-image img
+{
+	width : 100%;
+}
+
 #comments
 {
 	width: 70%;
@@ -418,7 +435,6 @@ input[type="submit"]{
 	width: 100%;
 	height: 3em;
 	border-radius: 1em;
-	font-size: 1.5em;
 }
 #comments-number
 {
@@ -484,7 +500,7 @@ footer
 footer p
 {
 	font-weight: normal;
-	font-size: 1.3em;
+	font-size: 0.8em;
 }
 footer a 
 {

@@ -103,9 +103,10 @@ include('../src/database_connection.php');
 <html lang="fr">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" media="(min-device-width: 1280px)" href="css/style.css" />
-		<link rel="stylesheet" media="(min-device-width: 450px) and (max-device-width: 1280px)" href="css/style_tablet.css" />
-		<link rel="stylesheet" media="(max-device-width: 450px)" href="css/style_smartphone.css" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="stylesheet" media="(min-width: 1281px)" href="css/style.css" />
+		<link rel="stylesheet" media="(min-width: 651px) and (max-width: 1280px)" href="css/style_tablet.css" />
+		<link rel="stylesheet" media="(max-width: 650px)" href="css/style_smartphone.css" />
 		<link rel="shortcut icon" href="img/logo_gbaf.png">
 		<?php echo '<title>' . htmlspecialchars($_SESSION['title']) . '</title>'; ?>
 	</head>

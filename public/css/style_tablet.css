@@ -45,6 +45,7 @@ header
 {
 	width: 100%;
 	background-color: white;
+	/*background-color: orange;*/
 	text-align: center;
 	color: red;
 	border-bottom:solid grey 0.05em;
@@ -82,23 +83,22 @@ header
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;	
-	min-width:50%;
+	min-width:20%;
 }
 nav 
 {
-	margin: 1em;
-	min-width: 30%;
+	min-width: 40%;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: space-around;
-	padding:1em;
+	justify-content: center;
+	padding:0.5em;
 }
 nav .button
 {
 	margin-left: 0.5em;
 	margin-right: 0.5em;
-	max-width: 10em;
+	max-width: 15em;
 	overflow-x: hidden;
 }
 #home
@@ -177,7 +177,7 @@ main
 /* FORMS */
 .form
 {
-	width: 70%;
+	width: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -222,6 +222,7 @@ input[type="submit"]{
 {
 	text-align: center;
 	width: 80%;
+	margin : 0;
 }
 .invalid
 {
@@ -258,6 +259,7 @@ input[type="submit"]{
 	padding : 0.1em 0.2em 0.1em 0.2em;
 	color: white;
 	text-align:center;
+	font-size : 0.8em;
 }
 #buttons-group
 {
@@ -397,6 +399,12 @@ input[type="submit"]{
 	flex-direction: column;
 	justify-content: center;
 }
+
+#actor-image img
+{
+	width : 100%;
+}
+
 #comments
 {
 	width: 70%;

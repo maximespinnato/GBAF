@@ -15,8 +15,8 @@
 		{
 		?>
 			<nav class="Menu">
-				<a href="../public/index.php?page=registration" class="button">S'inscrire</a>
-				<a href="../public/index.php?page=connection" class="button">Se connecter</a>
+				<a href="../public/index.php?page=registration" class="button">Inscription</a>
+				<a href="../public/index.php?page=connection" class="button">Connexion</a>
 			</nav>
 		<?php
 		}

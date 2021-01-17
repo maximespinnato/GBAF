@@ -70,7 +70,7 @@ echo '<form action="../public/index.php?page=modification&amp;field=' . $modific
 		}
 		?>
 		<p><input type="submit" value="Modifier" name="submitted" class="button"/></p>
-	</fieldset>;
+	</fieldset>
 </form>
 
 <p class="check-message">
