@@ -40,7 +40,7 @@ else
 	<?php
 
 	// Comment add
-	if (!empty($_POST['content']) && strlen($_POST['content']) <= MAX_CHARACTERS)
+	if (!empty($_POST['content']) && strlen($_POST['content']) <= MAX_LOGIN_LENGTH)
 	{
 		$request = $bdd->prepare('INSERT INTO comments(id_user,id_actor,date_add,content) VALUES(:id_user,:id_actor,NOW(),:content)');
 		$request->execute([
