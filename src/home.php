@@ -9,7 +9,7 @@ if (isset($_SESSION['auto_connection']) && $_SESSION['auto_connection'])
 ?>
 <main>
 	<section id="banner">
-		<h1>Groupement Banque Assurances Français</h1>
+		<h1>Groupement Banque Assurance Français</h1>
 		<p>
 			Représentant de la profession bancaire et des assureurs sur tous
 			les axes de la réglementation financière française
