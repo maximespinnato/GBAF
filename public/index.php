@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('../src/database_connection.php');
 define('MAX_LOGIN_LENGTH', 40);
 define('MAX_SENTENCES_LENGTH', 400);
 
@@ -57,24 +58,17 @@ if(!empty($_SESSION['page']) && !empty($_GET['page']))
 				}
 				if ($page === 'actor_page' && !empty($_GET['actor']))
 				{
-					switch ($_GET['actor']) {
-					    case '1':
-							$title = 'Formation&Co';
-					        break;
-					    case '2':
-							$title = 'ProtectPeople';
-					        break;
-					    case '3':
-							$title = 'DSA France';
-					        break;
-					    case '4':
-							$title = 'CDE';
-							break;			
-						default:
-							$title = 'Accueil';	        
-					}
+					$actorTitleRequest = $bdd->prepare('SELECT actor FROM actors WHERE id_actor = :id_actor');
+					$actorTitleRequest->execute(['id_actor' => (int) $_GET['actor']]);
+					$titleActor = $actorTitleRequest->fetch();
+					$actorTitleRequest->closeCursor();
+					$title = $titleActor['actor'];
+					if (empty($title))
+					{
+						$title = 'Acceuil';
+					}	
 				}
-				$_SESSION['title'] = $title;
+				$_SESSION['title'] =  $title;
 			}
 		}
 	}
@@ -96,7 +90,6 @@ else
 	$_SESSION['page'] = 'connection';
 	$_SESSION['title'] = 'Connexion';
 }
-include('../src/database_connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +102,7 @@ include('../src/database_connection.php');
 		<link rel="stylesheet" media="(min-width: 651px) and (max-width: 1280px)" href="css/style_tablet.css" />
 		<link rel="stylesheet" media="(max-width: 650px)" href="css/style_smartphone.css" />
 		<link rel="shortcut icon" href="img/logo_gbaf.png">
-		<?php echo '<title>' . htmlspecialchars($_SESSION['title']) . '</title>'; ?>
+		<?php echo '<title>' . (string) $_SESSION['title'] . '</title>'; ?>
 	</head>
 
 	<body>

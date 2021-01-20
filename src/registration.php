@@ -54,16 +54,14 @@ $_SESSION['loginQuestion'] = '';
 		{
 			if (!empty($_POST['login']) && strlen($_POST['login']) <= MAX_LOGIN_LENGTH)
 			{
-				$request = $bdd->prepare('SELECT login FROM members');
-				$request->execute();
-				while ($membersLogin = $request->fetch())
-				{
-					if ($_POST['login'] === $membersLogin['login'])
+				$request = $bdd->prepare('SELECT login FROM members WHERE login = :login');
+				$request->execute(['login' => $_POST['login']]);
+				$memberLogin = $request->fetch();
+					if (!empty($memberLogin['login']))
 					{
 						echo '<span class="invalid">Cet identifiant est déjà pris</span>';
 						$notSend = true;
 					}
-				}
 				$request->closeCursor();
 			}
 			else

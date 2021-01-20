@@ -51,12 +51,10 @@ if (!empty($_POST['login']) && strlen($_POST['login']) <= MAX_LOGIN_LENGTH
 
 
 // Vérification of logins in the database, and sending if correct
-$request = $bdd->prepare('SELECT id_user, lastname, firstname, login, password, question, answer FROM members');
-$request->execute();
-while ($userDatas = $request->fetch())
-{
-	if ($login === $userDatas['login'] && $cookiePassword === $userDatas['password'] 
-		|| $login === $userDatas['login'] && password_verify($password, $userDatas['password']))
+$request = $bdd->prepare('SELECT id_user, lastname, firstname, login, password, question, answer FROM members WHERE login = :login');
+$request->execute(['login' => $login]);
+$userDatas = $request->fetch();
+	if (!empty($userDatas['password']) && ($cookiePassword === $userDatas['password'] || password_verify($password, $userDatas['password'])))
 	{
 		if (isset($_POST['auto_connection']))
 		{
@@ -70,7 +68,6 @@ while ($userDatas = $request->fetch())
 		$request->closeCursor();
 		header('Location: ../public/index.php?page=home');
 	}
-}	
 $request->closeCursor();
 if (!empty($_POST['login']) || !empty($_POST['password'])) 
 {
